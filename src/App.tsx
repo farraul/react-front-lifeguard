@@ -13,7 +13,7 @@ import { SnackbarProvider } from 'notistack';
 import { AuthProvider } from 'src/auth/AuthContext';
 import DynamicMetaTags from './components/MetaTags/DynamicMetaTags'; // when we change the page its slowly
 // import createCache from '@emotion/cache';
-// import RouterProvider from './router/RouterProvider';
+import RouterProvider from './router/RouterProvider';
 // import { selectCurrentDateFnsLocale } from './store/i18n/i18Selectors';
 // import { ThemeProvider } from '@mui/material/styles';
 // import { useAppSelector } from './hooks/useApp';
@@ -34,8 +34,7 @@ const App = () => {
   //   const currentDateFnsLocale = useSelector(selectCurrentDateFnsLocale);
   //   const { theme, mode } = useAppSelector((state) => state.settings);
   //   console.log('App  color:', mode);
-  const a = 'aa';
-  console.log(a);
+
   return (
     // <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={currentDateFnsLocale}>
     //   <QueryClientProvider client={queryClient}>
