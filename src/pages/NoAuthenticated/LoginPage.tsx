@@ -73,9 +73,10 @@ function LoginPage() {
   return (
     <>
       <img
-        src='/assets/images/background.webp'
+        src='/assets/images/backgrounds/beach-background.jpg'
         alt='image of products'
         className='w-full h-screen z-[-1] fixed top-0 left-0'
+        style={{ objectFit: 'cover' }}
       />
       <Container component='main' maxWidth='xs'>
         {/* <CssBaseline /> */}
@@ -96,7 +97,7 @@ function LoginPage() {
                 rules={{
                   required: true,
                   maxLength: {
-                    value: 10,
+                    value: 6,
                     message: 'This input exceed maxLength.',
                   },
                 }}
@@ -115,7 +116,7 @@ function LoginPage() {
                 rules={{
                   required: true,
                   maxLength: {
-                    value: 1,
+                    value: 4,
                     message: 'This input exceed maxLength.',
                   },
                 }}

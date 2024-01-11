@@ -1,6 +1,10 @@
-import React, { lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import { Spinner } from 'src/components/Loaders';
 import { Layout } from 'src/layouts';
+
+const LoginPage = lazy(() => import('src/pages/NoAuthenticated/LoginPage'));
+const RegisterPage = lazy(() => import('src/pages/NoAuthenticated/RegisterPage'));
 const ErrorPage = lazy(() => import('src/pages/Authenticated/ErrorPage'));
 
 export const routesConfigUnAuth = createBrowserRouter([
@@ -14,16 +18,19 @@ export const routesConfigUnAuth = createBrowserRouter([
         children: [
           {
             index: true,
-            async lazy() {
-              const { LoginPage } = await import('src/pages/NoAuthenticated/');
-              return { Component: LoginPage };
-            },
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <LoginPage />
+              </Suspense>
+            ),
           },
           {
-            async lazy() {
-              const { RegisterPage } = await import('src/pages/NoAuthenticated/');
-              return { Component: RegisterPage };
-            },
+            path: '/register',
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <RegisterPage />
+              </Suspense>
+            ),
           },
           {
             path: '*',

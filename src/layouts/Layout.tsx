@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom'; //para mostrar children
 import { SnackbarUtilitiesConfigurator } from 'src/utilities';
-// import { Header } from '../components/Header';
+import { Header } from '../components/Header';
 import React from 'react';
 
 function Layout() {
   return (
     <>
       <SnackbarUtilitiesConfigurator />
-      {/* <Header /> */}
+      <Header />
       <main>
         <Outlet />
       </main>

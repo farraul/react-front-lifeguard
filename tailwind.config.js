@@ -26,26 +26,30 @@ module.exports = {
       },
     },
     extend: {
-      backgroundColor: {
-        'theme-primary': 'var(--bg-primary)',
-        'theme-secondary': 'var(--bg-secondary)',
-        'theme-thirdary': 'var(--bg-thirdary)',
-
-        'theme-btn-primary': 'var(--btn-bg-primary)',
-
-        primary: '#464e5b',
-      },
-
       colors: {
         'theme-primary': 'var(--text-primary)',
         'theme-secondary': 'var(--text-secondary)',
 
         'theme-btn-primary': 'var(--btn-text-primary)',
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        'theme-btn-secondary': 'var(--btn-text-secondary)',
+
+        primary: '#002e3d',
+        secondary: ' #ffffff',
+        // border: 'hsl(var(--border))',
+        // input: 'hsl(var(--input))',
+        // ring: 'hsl(var(--ring))',
+        // background: 'hsl(var(--background))',
+        // foreground: 'hsl(var(--foreground))',
+      },
+      backgroundColor: {
+        'theme-primary': 'var(--bg-primary)',
+        'theme-secondary': 'var(--bg-secondary)',
+
+        'theme-btn-primary': 'var(--btn-bg-primary)',
+        'theme-btn-secondary': 'var(--btn-bg-secondary)',
+
+        primary: '#002e3d',
+        secondary: '#ffffff',
       },
     },
   },

@@ -1,0 +1,18 @@
+/* Default mode: light */
+:root {
+
+    --text-primary: #ffffff;
+    --text-secondary: #002e3d;
+
+    --bg-primary: #002e3d;
+    --bg-secondary: #ffffff;
+    
+
+    --btn-text-primary: #ffffff;
+    --btn-text-secondary: #002e3d;
+
+    --btn-bg-primary: #002e3d;
+    --btn-bg-secondary: #ffffff;
+
+
+}

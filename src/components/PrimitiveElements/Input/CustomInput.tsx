@@ -45,11 +45,11 @@ const CustomInput = ({
 
   return (
     <div className={`${classAditional || ''} flex flex-col w-full`}>
-      <label className='label-primary' htmlFor={id}>
+      <label className='text-secondary' htmlFor={id}>
         {label}
         {isRequired && <b className='text-red-900'>*</b>}
       </label>
-      <div className='relative w-full h-7 '>
+      <div className='relative w-full '>
         <input
           id={id}
           placeholder={placeholder}
@@ -57,7 +57,7 @@ const CustomInput = ({
           type={currentType}
           className={`${
             id === 'password' || id === 'confirmPassword' ? 'pr-10' : 'w-full'
-          } custom-input  w-full p-1`}
+          } custom-input  w-full p-1 mt-1`}
           {...(register && register(name as string, rules))}
           {...props}
         />
@@ -72,7 +72,7 @@ const CustomInput = ({
           </button>
         ) : null}
       </div>
-      {error && <p className='mt-1 ml-1 text-xs text-red-500 self-start '>{error}</p>}
+      {error && <p className='mt-3 ml-1 text-xs text-red-500 self-start '>{error}</p>}
     </div>
   );
 };
