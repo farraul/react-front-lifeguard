@@ -1,18 +1,18 @@
 /* Default mode: light */
 :root {
 
-    --text-primary: #ffffff;
-    --text-secondary: #002e3d;
+    --text-primary-generic: #ffffff;
+    --text-secondary-generic: #002e3d;
 
-    --bg-primary: #002e3d;
-    --bg-secondary: #ffffff;
+    --bg-primary-generic: #002e3d;
+    --bg-secondary-generic: #ffffff;
     
 
-    --btn-text-primary: #ffffff;
-    --btn-text-secondary: #002e3d;
+    --btn-text-primary-generic: #ffffff;
+    --btn-text-secondary-generic: #002e3d;
 
-    --btn-bg-primary: #002e3d;
-    --btn-bg-secondary: #ffffff;
+    --btn-bg-primary-generic: #002e3d;
+    --btn-bg-secondary-generic: #ffffff;
 
 
 }

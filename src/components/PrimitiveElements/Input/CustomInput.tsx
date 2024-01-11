@@ -72,6 +72,8 @@ const CustomInput = ({
           </button>
         ) : null}
       </div>
+      {error}
+
       {error && <p className='mt-3 ml-1 text-xs text-red-500 self-start '>{error}</p>}
     </div>
   );

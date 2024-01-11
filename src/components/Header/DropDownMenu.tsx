@@ -1,5 +1,4 @@
 import { Button } from 'src/components/ui/button';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,31 +7,38 @@ import {
   DropdownMenuLabel,
   DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu';
-import { DropdownMenuShortcut } from '../ui/dropdown-menu';
+} from 'src/components/ui/dropdown-menu';
 
-// className='w-56 border-black border-2 text-black p-4'
-export const DropDownMenu = () => {
+export function DropDownMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline'>Menú</Button>
+        <Button variant='outline'>Open</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel className=''>My Account</DropdownMenuLabel>
+      <DropdownMenuContent className='w-56'>
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
             Profile
-            <DropdownMenuShortcut>P</DropdownMenuShortcut>
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             Billing
-            <DropdownMenuShortcut>B</DropdownMenuShortcut>
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            Settings
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            Keyboard shortcuts
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -66,4 +72,4 @@ export const DropDownMenu = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+}

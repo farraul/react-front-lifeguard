@@ -81,7 +81,7 @@ function Header() {
                   >
                     servicios
                   </Link> */}
-                <div className=' text-theme-primary'>
+                <div className=' '>
                   <DropDownMenu />
                 </div>
               </li>

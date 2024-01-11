@@ -9,6 +9,7 @@ import { RegisterOptions, UseFormRegisterReturn } from 'react-hook-form';
 import { object, string, number, AnyObject, ObjectSchema } from 'yup';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { error } from 'console';
 
 // type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
 //   target: {
@@ -29,24 +30,25 @@ type Inputs = {
   // phone: number;
   // lastName: string;
 };
-const userSchema = object({
-  email: string().required(),
-  password: string().required(),
-  // example: string(),
-  // exampleRequired: string().required(),
-  // phone: number().required().integer(),
-  // lastName: string().required(),
-});
+// const userSchema = object({
+//   email: string().required(),
+//   password: string().required(),
+//   // example: string(),
+//   // exampleRequired: string().required(),
+//   // phone: number().required().integer(),
+//   // lastName: string().required(),
+// });
 
 function LoginPage() {
   // const [value, setValue] = useState(initialState);
   const user = useAppSelector((state) => state.user);
 
+  //register
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({ resolver: yupResolver(userSchema) });
+  } = useForm<Inputs>();
 
   console.log({ errors });
   // function handleChange<T>(e: InputChangeEvent<T>) {
@@ -85,6 +87,8 @@ function LoginPage() {
             <h4 className='text-center text-xl font-light leading-tight tracking-tight text-white md:text-4xl '>
               Iniciar sesión
             </h4>
+            {errors.email?.message}
+            {errors.password?.message}
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='space-y-4 md:space-y-6 flex flex-col justify-center'
@@ -106,7 +110,6 @@ function LoginPage() {
                 isRequired={true}
                 placeholder='Email'
               />
-              {/* {errors.email && <span>This field is required</span>} */}
 
               <CustomInput
                 label='password'
@@ -115,9 +118,14 @@ function LoginPage() {
                 register={register}
                 rules={{
                   required: true,
-                  maxLength: {
-                    value: 4,
-                    message: 'This input exceed maxLength.',
+
+                  minLength: {
+                    value: 6,
+                    message: 'Password should be at-least 6 characters.',
+                  },
+                  pattern: {
+                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    message: 'Email is not valid.',
                   },
                 }}
                 type='password'
