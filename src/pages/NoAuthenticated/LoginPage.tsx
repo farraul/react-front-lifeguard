@@ -1,45 +1,74 @@
-import { CssBaseline, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import React, { useState, FormEvent, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from 'src/hooks/useApp';
 import { SignIn } from 'src/models/auth';
 import jwtService from 'src/auth/jwtService';
-import { Button, Input } from 'src/components/PrimitiveElements';
+import { Button, CustomInput, Input } from 'src/components/PrimitiveElements';
+import { RegisterOptions, UseFormRegisterReturn } from 'react-hook-form';
+import { object, string, number, AnyObject, ObjectSchema } from 'yup';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
-  target: {
-    name: string;
-    value: T;
-  };
-};
-const initialState: SignIn = {
-  email: '',
-  password: '',
-};
+// type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
+//   target: {
+//     name: string;
+//     value: T;
+//   };
+// };
+// const initialState: SignIn = {
+//   email: '',
+//   password: '',
+// };
 
-export default function LoginPage() {
-  const [value, setValue] = useState(initialState);
+type Inputs = {
+  email: string;
+  password: string;
+  // example?: string;
+  // exampleRequired: string;
+  // phone: number;
+  // lastName: string;
+};
+const userSchema = object({
+  email: string().required(),
+  password: string().required(),
+  // example: string(),
+  // exampleRequired: string().required(),
+  // phone: number().required().integer(),
+  // lastName: string().required(),
+});
+
+function LoginPage() {
+  // const [value, setValue] = useState(initialState);
   const user = useAppSelector((state) => state.user);
 
-  function handleChange<T>(e: InputChangeEvent<T>) {
-    const valueSignIn = e.target.value as T;
-    setValue({ ...value, [e.target.name]: valueSignIn });
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>({ resolver: yupResolver(userSchema) });
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (value) {
-      jwtService
-        .signInWithEmailAndPassword(value.email, value.password, value.remember)
-        .then((user) => {
-          // No need to do anything, user data will be set at app/auth/AuthContext
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {});
-    }
-  }
+  console.log({ errors });
+  // function handleChange<T>(e: InputChangeEvent<T>) {
+  //   const valueSignIn = e.target.value as T;
+  //   setValue({ ...value, [e.target.name]: valueSignIn });
+  // }
+
+  const onSubmit: SubmitHandler<Inputs> = (value) => {
+    console.log('data: ', value);
+  };
+  //   if (value) {
+  //     jwtService
+  //       .signInWithEmailAndPassword(value.email, value.password, )
+  //       .then((_user) => {
+  //         // No need to do anything, user data will be set at app/auth/AuthContext
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       })
+  //       .finally(() => {});
+  //   }
+  // }
 
   return (
     <>
@@ -53,29 +82,47 @@ export default function LoginPage() {
         <div className='w-full bg-white rounded-lg shadow dark:border mt-4 md:mt-20 sm:max-w-md xl:p-0 z-20'>
           <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary'>
             <h4 className='text-center text-xl font-light leading-tight tracking-tight text-white md:text-4xl '>
-              Loguea tu cuenta
+              Iniciar sesión
             </h4>
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit(onSubmit)}
               className='space-y-4 md:space-y-6 flex flex-col justify-center'
             >
-              <Input
-                className='bg-gray-400 w-full h-8 px-2'
-                required
-                placeholder='Email'
-                type='email'
+              <CustomInput
+                label='email'
                 name='email'
-                onChange={handleChange}
-                value={value.email}
+                error={errors.email?.message as string}
+                register={register}
+                rules={{
+                  required: true,
+                  maxLength: {
+                    value: 10,
+                    message: 'This input exceed maxLength.',
+                  },
+                }}
+                type='text'
+                id='email'
+                isRequired={true}
+                placeholder='Email'
               />
-              <Input
-                className='bg-gray-400 w-full h-8 px-2'
-                required
-                placeholder='••••••••'
-                type='password'
+              {/* {errors.email && <span>This field is required</span>} */}
+
+              <CustomInput
+                label='password'
                 name='password'
-                onChange={handleChange}
-                value={value.password}
+                error={errors.password?.message as string}
+                register={register}
+                rules={{
+                  required: true,
+                  maxLength: {
+                    value: 1,
+                    message: 'This input exceed maxLength.',
+                  },
+                }}
+                type='password'
+                id='password'
+                isRequired={true}
+                placeholder='Paswword'
               />
               <Button
                 className='h-12 text-center hover:scale-110 active:scale-90 transition flex items-center text-black bg-white justify-center'
@@ -101,6 +148,4 @@ export default function LoginPage() {
   );
 }
 
-function rejectWithValue(error: unknown) {
-  throw new Error('Function not implemented.');
-}
+export default LoginPage;

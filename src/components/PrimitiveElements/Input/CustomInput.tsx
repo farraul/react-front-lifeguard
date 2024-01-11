@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import type { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
+import React, { useState } from 'react';
+import type { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 type AttributeProps = React.DetailedHTMLProps<
@@ -37,6 +37,8 @@ const CustomInput = ({
   const [currentType, setCurrentType] = useState<typeInput>(type);
 
   const handlePassword = () => {
+    console.log({ error });
+
     const typeIn = currentType === 'password' ? 'text' : 'password';
     setCurrentType(typeIn);
   };
@@ -45,16 +47,17 @@ const CustomInput = ({
     <div className={`${classAditional || ''} flex flex-col w-full`}>
       <label className='label-primary' htmlFor={id}>
         {label}
-        {isRequired && <b className='text-red-500 '>*</b>}
+        {isRequired && <b className='text-red-900'>*</b>}
       </label>
-      <div className='relative w-full'>
+      <div className='relative w-full h-7 '>
         <input
           id={id}
+          placeholder={placeholder}
           required={isRequired}
           type={currentType}
           className={`${
-            id === 'password' || id === 'confirmPassword' ? 'pr-10' : 'pr-4'
-          } custom-input`}
+            id === 'password' || id === 'confirmPassword' ? 'pr-10' : 'w-full'
+          } custom-input  w-full p-1`}
           {...(register && register(name as string, rules))}
           {...props}
         />

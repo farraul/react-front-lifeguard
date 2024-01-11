@@ -15,13 +15,13 @@ export const routesConfigUnAuth = createBrowserRouter([
           {
             index: true,
             async lazy() {
-              const { LoginPage } = await import('src/pages/NoAuthenticated');
+              const { LoginPage } = await import('src/pages/NoAuthenticated/');
               return { Component: LoginPage };
             },
           },
           {
             async lazy() {
-              const { RegisterPage } = await import('src/pages/NoAuthenticated');
+              const { RegisterPage } = await import('src/pages/NoAuthenticated/');
               return { Component: RegisterPage };
             },
           },
