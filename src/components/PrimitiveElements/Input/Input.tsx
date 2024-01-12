@@ -14,7 +14,7 @@ const Input = forwardRef(
       type = 'text',
       className = '',
       name,
-      value,
+      placeholder: value,
       placeholder,
       isFocused = false,
       ...props
@@ -38,7 +38,7 @@ const Input = forwardRef(
         {...props}
         type={type}
         name={name}
-        value={value}
+        placeholder={value}
         placeholder={placeholder}
         className={
           'border-gray-600 placeholder-gray-300 dark:border-gray-700 dark:bg-gray-400 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm ' +

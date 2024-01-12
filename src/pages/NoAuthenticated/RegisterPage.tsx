@@ -68,7 +68,7 @@ export default function RegisterPage() {
                 type='firstName'
                 name='firstName'
                 onChange={handleChange}
-                value={value.firstName}
+                placeholder={value.firstName}
               />
               <Input
                 className='bg-gray-400 w-full h-8 px-2'
@@ -77,7 +77,7 @@ export default function RegisterPage() {
                 type='email'
                 name='email'
                 onChange={handleChange}
-                value={value.email}
+                placeholder={value.email}
               />
               <Input
                 className='bg-gray-400 w-full h-8 px-2'
@@ -86,7 +86,7 @@ export default function RegisterPage() {
                 type='password'
                 name='password'
                 onChange={handleChange}
-                value={value.password}
+                placeholder={value.password}
               />
               <Button
                 className='h-12 text-center hover:scale-110 active:scale-90 transition flex items-center justify-center'

@@ -15,10 +15,7 @@ module.exports = {
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
-    'unused-imports/no-unused-vars': [
-      'off',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-    ],
+    'unused-imports/no-unused-vars': 'off',
 
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'unused-imports/no-unused-imports': 'off',

@@ -5,12 +5,11 @@ export interface Token {
 export interface UserInfo extends Token {
   id: string;
   name: string;
-  lastname: string;
+  lastName: string;
   email: string;
   age: number;
   location: string;
   experience: string;
-  key: string;
 }
 
 export interface User {
