@@ -26,6 +26,7 @@ module.exports = {
 
         primary: '#002e3d',
         secondary: '#ffffff',
+        thirdary: '#504530',
       },
       colors: {
         'theme-primary': 'var(--text-primary-generic)',

@@ -67,9 +67,12 @@ function Header() {
   return (
     <>
       <header>
-        <nav className='  h-20 flex flex-nowrap items-center bg-theme-primary justify-between px-20 '>
+        <nav className='  h-20 flex flex-nowrap items-center bg-theme-primary justify-between px-40 '>
           <div className='text-theme-primary'>
-            <p className='title text-theme-primary cursor-pointer' onClick={() => navigate('/')}>
+            <p
+              className='title text-theme-primary cursor-pointer text-3xl'
+              onClick={() => navigate('/')}
+            >
               Lifeguard
             </p>
           </div>

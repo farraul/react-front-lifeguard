@@ -23,45 +23,43 @@ const ProfilePage = () => {
   const [value, setValue] = React.useState(0);
 
   return (
-    <div className='p-20 py-32'>
-      <div>
-        <div className='w-1/2'>
-          <div className='pb-10 flex flex-row items-center'>
-            <div>
-              <img src='/assets/images/icons/profile.svg' />
-            </div>
-            {/* revisar tamaños h1*/}
-            <h1 className='text-2xl font-bold ml-3'>Mi perfil</h1>
+    <div>
+      <div className='w-1/2'>
+        <div className='pb-10 flex flex-row items-center'>
+          <div>
+            <img src='/assets/images/icons/profile.svg' />
           </div>
-
-          <div className='p-10 max-w-md bg-gray-300 rounded-lg'>
-            <Avatar {...stringAvatar(name)} />
-            <div className='py-8'>
-              <p>
-                <b>Name: </b> {name}
-              </p>
-
-              <p>
-                <b>Apellidos: </b> {lastName}
-              </p>
-              <p>
-                <b>Email: </b> {email}
-              </p>
-              <p>
-                <b>Edad: </b> {age}
-              </p>
-              <p>
-                <b>Localidad: </b> {location}
-              </p>
-              <p>
-                <b>Experiencia: </b> {experience}
-              </p>
-            </div>
-            <PopUpEditProfile />
-          </div>
-
-          <Outlet />
+          {/* revisar tamaños h1*/}
+          <h1 className='text-2xl font-bold ml-3'>Mi perfil</h1>
         </div>
+
+        <div className='p-10 max-w-md bg-gray-300 rounded-lg'>
+          <Avatar {...stringAvatar(name)} />
+          <div className='py-8'>
+            <p>
+              <b>Name: </b> {name}
+            </p>
+
+            <p>
+              <b>Apellidos: </b> {lastName}
+            </p>
+            <p>
+              <b>Email: </b> {email}
+            </p>
+            <p>
+              <b>Edad: </b> {age}
+            </p>
+            <p>
+              <b>Localidad: </b> {location}
+            </p>
+            <p>
+              <b>Experiencia: </b> {experience}
+            </p>
+          </div>
+          <PopUpEditProfile />
+        </div>
+
+        <Outlet />
       </div>
     </div>
   );

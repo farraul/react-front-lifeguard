@@ -8,7 +8,7 @@ function Layout() {
     <>
       <SnackbarUtilitiesConfigurator />
       <Header />
-      <main>
+      <main className='p-40 py-32'>
         <Outlet />
       </main>
     </>
