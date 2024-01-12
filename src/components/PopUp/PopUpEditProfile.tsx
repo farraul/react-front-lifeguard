@@ -19,19 +19,17 @@ import { setCredentials } from 'src/store/user/userSlice';
 export const PopUpEditProfile = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector<UserInfo>((state) => state.user.userInfo);
-  const { id, name, lastName, age, location, experience } = user;
+  const { lastName, age, location, experience } = user;
 
   const [profile, setProfile] = useState<UserInfo>(user);
 
   function handleChange(e: any) {
     const value = e.target.value;
     setProfile({ ...profile, [e.target.name]: value });
-    console.log({ profile });
   }
 
   function handleSubmit(e: any) {
     e.preventDefault();
-    console.log({ profile });
     dispatch(setCredentials(profile));
   }
 
@@ -63,26 +61,50 @@ export const PopUpEditProfile = () => {
               <Label htmlFor='username' className='text-right'>
                 Apellidos
               </Label>
-              <Input id='username' placeholder={lastName} className='col-span-3' />
+              <Input
+                id='lastName'
+                name='lastName'
+                placeholder={lastName}
+                className='col-span-3'
+                onChange={handleChange}
+              />
             </div>
 
             <div className='grid grid-cols-4 items-center gap-4'>
               <Label htmlFor='username' className='text-right'>
                 Edad
               </Label>
-              <Input id='username' placeholder={age.toString()} className='col-span-3' />
+              <Input
+                id='age'
+                name='age'
+                placeholder={age.toString()}
+                className='col-span-3'
+                onChange={handleChange}
+              />
             </div>
             <div className='grid grid-cols-4 items-center gap-4'>
               <Label htmlFor='username' className='text-right'>
                 Localidad
               </Label>
-              <Input id='username' placeholder={location} className='col-span-3' />
+              <Input
+                id='location'
+                name='location'
+                placeholder={location}
+                className='col-span-3'
+                onChange={handleChange}
+              />
             </div>
             <div className='grid grid-cols-4 items-center gap-4'>
               <Label htmlFor='username' className='text-right'>
                 Experiencia
               </Label>
-              <Input id='username' placeholder={experience} className='col-span-3' />
+              <Input
+                id='experience'
+                name='experience'
+                placeholder={experience}
+                className='col-span-3'
+                onChange={handleChange}
+              />
             </div>
           </div>
           <DialogFooter onClick={handleSubmit}>

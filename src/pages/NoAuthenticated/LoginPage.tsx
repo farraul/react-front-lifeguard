@@ -10,68 +10,28 @@ import { object, string, number, AnyObject, ObjectSchema } from 'yup';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { error } from 'console';
-
-// type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
-//   target: {
-//     name: string;
-//     value: T;
-//   };
-// };
-// const initialState: SignIn = {
-//   email: '',
-//   password: '',
-// };
+import useAuth from 'src/hooks/useAuth';
 
 type Inputs = {
   email: string;
   password: string;
-  // example?: string;
-  // exampleRequired: string;
-  // phone: number;
-  // lastName: string;
 };
-// const userSchema = object({
-//   email: string().required(),
-//   password: string().required(),
-//   // example: string(),
-//   // exampleRequired: string().required(),
-//   // phone: number().required().integer(),
-//   // lastName: string().required(),
-// });
 
 function LoginPage() {
-  // const [value, setValue] = useState(initialState);
-  const user = useAppSelector((state) => state.user);
-
-  //register
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
 
-  console.log({ errors });
-  // function handleChange<T>(e: InputChangeEvent<T>) {
-  //   const valueSignIn = e.target.value as T;
-  //   setValue({ ...value, [e.target.name]: valueSignIn });
-  // }
+  const { onSubmit } = useAuth('login');
+  const user = useAppSelector((state) => state.user);
 
-  const onSubmit: SubmitHandler<Inputs> = (value) => {
-    console.log('data: ', value);
+  const onSubmitLocal: SubmitHandler<Inputs> = (value) => {
+    onSubmit(value);
   };
-  //   if (value) {
-  //     jwtService
-  //       .signInWithEmailAndPassword(value.email, value.password, )
-  //       .then((_user) => {
-  //         // No need to do anything, user data will be set at app/auth/AuthContext
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })
-  //       .finally(() => {});
-  //   }
-  // }
 
+  onSubmit;
   return (
     <>
       <img
@@ -82,15 +42,14 @@ function LoginPage() {
       />
       <Container component='main' maxWidth='xs'>
         {/* <CssBaseline /> */}
-        <div className='w-full bg-white rounded-lg shadow dark:border mt-4 md:mt-20 sm:max-w-md xl:p-0 z-20'>
+        <div className='w-full bg-white  shadow dark:border mt-4 md:mt-20 sm:max-w-md xl:p-0 z-20'>
           <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary'>
             <h4 className='text-center text-xl font-light leading-tight tracking-tight text-white md:text-4xl '>
               Iniciar sesión
             </h4>
-            {errors.email?.message}
-            {errors.password?.message}
+
             <form
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmitLocal)}
               className='space-y-4 md:space-y-6 flex flex-col justify-center'
             >
               <CustomInput
@@ -98,13 +57,6 @@ function LoginPage() {
                 name='email'
                 error={errors.email?.message as string}
                 register={register}
-                rules={{
-                  required: true,
-                  maxLength: {
-                    value: 6,
-                    message: 'This input exceed maxLength.',
-                  },
-                }}
                 type='text'
                 id='email'
                 isRequired={true}
@@ -116,18 +68,6 @@ function LoginPage() {
                 name='password'
                 error={errors.password?.message as string}
                 register={register}
-                rules={{
-                  required: true,
-
-                  minLength: {
-                    value: 6,
-                    message: 'Password should be at-least 6 characters.',
-                  },
-                  pattern: {
-                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                    message: 'Email is not valid.',
-                  },
-                }}
                 type='password'
                 id='password'
                 isRequired={true}
@@ -136,7 +76,6 @@ function LoginPage() {
               <Button
                 className='h-12 text-center hover:scale-110 active:scale-90 transition flex items-center text-black bg-white justify-center'
                 type='submit'
-                disabled={user.loading}
               >
                 Loguearse
               </Button>

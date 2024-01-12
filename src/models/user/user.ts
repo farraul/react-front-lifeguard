@@ -3,13 +3,17 @@ export interface Token {
 }
 
 export interface UserInfo extends Token {
-  id: string;
   name: string;
   lastName: string;
   email: string;
   age: number;
+  community: string;
+  province: string;
   location: string;
+  id: string;
   experience: string;
+  move: string;
+  token: string;
 }
 
 export interface User {

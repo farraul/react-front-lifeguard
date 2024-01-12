@@ -10,7 +10,7 @@ import { SnackbarProvider } from 'notistack';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // import { useSelector } from 'react-redux';
-// import { AuthProvider } from 'src/auth/AuthContext';
+import { AuthProvider } from 'src/auth/AuthContext';
 // import DynamicMetaTags from './components/MetaTags/DynamicMetaTags'; // when we change the page its slowly
 // import createCache from '@emotion/cache';
 import RouterProvider from './router/RouterProvider';
@@ -40,20 +40,20 @@ const App = () => {
   return (
     <>
       {/* <DynamicMetaTags /> */}
-      {/* <AuthProvider> */}
-      <CssBaseline />
+      <AuthProvider>
+        <CssBaseline />
 
-      <SnackbarProvider
-        maxSnack={2}
-        autoHideDuration={3000}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-      >
-        <RouterProvider />
-      </SnackbarProvider>
-      {/* </AuthProvider> */}
+        <SnackbarProvider
+          maxSnack={2}
+          autoHideDuration={3000}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+        >
+          <RouterProvider />
+        </SnackbarProvider>
+      </AuthProvider>
     </>
   );
 };

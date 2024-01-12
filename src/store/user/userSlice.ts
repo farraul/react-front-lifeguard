@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { userRegister, signIn } from './userActions';
 import Cookies from 'js-cookie';
 import { User, UserInfo } from 'src/models/user/user';
-import profileLifeguard from 'src/database/profileLifeguard.json';
+import profileLifeguard from 'src/stub/profileLifeguardStub.json';
 
 const token = Cookies.get('jwt_access_token') || '';
 
@@ -12,7 +12,7 @@ const tokenDefault = '';
 
 const userEmptyState: User = {
   loading: false,
-  userInfo: { ...infoDefault, token },
+  userInfo: { ...infoDefault },
   error: null,
   success: false,
 };
