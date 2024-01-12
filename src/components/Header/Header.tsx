@@ -67,9 +67,11 @@ function Header() {
   return (
     <>
       <header>
-        <nav className='  h-20 flex flex-nowrap items-center bg-theme-primary justify-between px-20 text-theme-primary'>
+        <nav className='  h-20 flex flex-nowrap items-center bg-theme-primary justify-between px-20 '>
           <div className='text-theme-primary'>
-            <p className='title '>Lifeguard</p>
+            <p className='title text-theme-primary cursor-pointer' onClick={() => navigate('/')}>
+              Lifeguard
+            </p>
           </div>
 
           <div className='  justify-between items-center  '>

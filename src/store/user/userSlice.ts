@@ -2,9 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { userRegister, signIn } from './userActions';
 import Cookies from 'js-cookie';
 import { User, UserInfo } from 'src/models/user/user';
+import profileLifeguard from 'src/database/profileLifeguard.json';
 
 const token = Cookies.get('jwt_access_token') || '';
-const infoDefault = { _id: '', firstName: '', email: '' };
+
+const infoDefault = profileLifeguard;
+
 const tokenDefault = '';
 
 const userEmptyState: User = {

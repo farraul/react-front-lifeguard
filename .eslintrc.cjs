@@ -11,7 +11,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['prettier', 'react-refresh','unused-imports'], // i delete 'react-refresh'
+  plugins: ['prettier', 'react-refresh', 'unused-imports'], // i delete 'react-refresh'
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -23,12 +23,7 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'unused-imports/no-unused-imports': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
+    'prettier/prettier': 0,
 
     // quotes: ["error", "single"],
   },

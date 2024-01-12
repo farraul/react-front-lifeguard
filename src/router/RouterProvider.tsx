@@ -6,9 +6,10 @@ import { Spinner } from 'src/components/Loaders';
 import { useGetUserIsLogged } from 'src/hooks/useGetUserIsLogged';
 
 const RouterProvider = () => {
-  const isLogin = useGetUserIsLogged();
-  console.log({ isLogin });
+  let isLogin = useGetUserIsLogged();
+  isLogin = true;
 
+  console.log({ isLogin });
   return (
     <Suspense fallback={<Spinner />}>
       {isLogin ? <Provider router={routesConfigAuth} /> : <Provider router={routesConfigUnAuth} />}

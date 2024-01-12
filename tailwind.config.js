@@ -28,11 +28,11 @@ module.exports = {
         secondary: '#ffffff',
       },
       colors: {
-        'theme-primary': 'var(--text-primary)',
-        'theme-secondary': 'var(--text-secondary)',
+        'theme-primary': 'var(--text-primary-generic)',
+        'theme-secondary': 'var(--text-secondary-generic)',
 
-        'theme-btn-primary': 'var(--btn-text-primary)',
-        'theme-btn-secondary': 'var(--btn-text-secondary)',
+        'theme-btn-primary': 'var(--btn-text-primary-generic)',
+        'theme-btn-secondary': 'var(--btn-text-secondary-generic)',
 
         'primary-generic': '#002e3d',
         'secondary-generic': ' #ffffff',
