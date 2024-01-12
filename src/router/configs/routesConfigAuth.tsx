@@ -3,9 +3,9 @@ import { Spinner } from 'src/components/Loaders';
 import { Suspense, lazy } from 'react';
 import Layout from 'src/layouts';
 
-const ProfilePage = lazy(() => import('src/pages/Authenticated/ProfilePage'));
-const ErrorPage = lazy(() => import('src/pages/Authenticated/ErrorPage'));
-const ReservationPage = lazy(() => import('src/pages/Authenticated/ReservationPage'));
+const ProfilePage = lazy(() => import('src/pages/authenticated/ProfilePage'));
+const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
+const ReservationPage = lazy(() => import('src/pages/authenticated/ReservationPage'));
 
 export const routesConfigAuth = createBrowserRouter([
   {

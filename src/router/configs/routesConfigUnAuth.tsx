@@ -3,9 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Spinner } from 'src/components/Loaders';
 import { Layout } from 'src/layouts';
 
-const LoginPage = lazy(() => import('src/pages/NoAuthenticated/LoginPage'));
-const RegisterPage = lazy(() => import('src/pages/NoAuthenticated/RegisterPage'));
-const ErrorPage = lazy(() => import('src/pages/Authenticated/ErrorPage'));
+const LoginPage = lazy(() => import('src/pages/noAuthenticated/LoginPage'));
+const RegisterPage = lazy(() => import('src/pages/noAuthenticated/RegisterPage'));
+const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
 
 export const routesConfigUnAuth = createBrowserRouter([
   {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { encriptAdapter } from 'src/adapters/encriptAdapter';
-import jwtServiceConfig from 'src/configs/jwtServiceConfig';
+import jwtServiceConfig from 'src/auth/configs/jwtServiceConfig';
 import AppUtils from 'src/utilities/utils';
 
 class JwtService extends AppUtils.EventEmitter {
