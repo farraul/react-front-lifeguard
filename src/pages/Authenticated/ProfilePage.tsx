@@ -4,7 +4,7 @@ import { useAppSelector } from 'src/hooks/useApp';
 import Card from '@mui/material/Card';
 
 import { Link, Outlet } from 'react-router-dom';
-import { PopUpEditProfile } from 'src/components/PopUp/PopUpEditProfile';
+import { PopUpEditProfile } from 'src/components/PopUp/EditProfilePopUp';
 
 interface List {
   title: string;
@@ -39,8 +39,8 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div>
-      <div className='w-1/2'>
+    <article>
+      <section className='w-1/2'>
         <div className='pb-10 flex flex-row items-center'>
           <div>
             <img src='/assets/images/icons/profile.svg' />
@@ -63,8 +63,8 @@ const ProfilePage = () => {
         </div>
 
         <Outlet />
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 
