@@ -4,12 +4,13 @@
     "lastname": "García",
     "email": "isabel@gmail.com",
     "age": 30,
-    "community": "AND",
+    "community": "Andalucia",
     "province": "Almería",
     "location": "El Ejido",
     "experience": "1 año",
     "id": "59363115-68k41-4363-a277-482137545891",
-    "move": "yes",
+    "move": "No",
+    "availability": "Inmediata",
     "token": "string"
   },
   {
@@ -17,12 +18,13 @@
     "lastname": "García",
     "email": "isabel@gmail.com",
     "age": 30,
-    "community": "AND",
+    "community": "C. Valenciana",
     "province": "Almería",
     "location": "El Ejido",
     "experience": "1 año",
     "id": "59363115k-6841-4363-a277-482137545891",
     "move": "yes",
+    "availability": "Junio-Agosto",
     "token": "string"
   },
   {
@@ -36,6 +38,7 @@
     "experience": "1 año",
     "id": "59363115-684j1-4363-a277-482137545891",
     "move": "yes",
+    "availability": "Junio-Agosto",
     "token": "string"
   },
   {
@@ -49,6 +52,7 @@
     "experience": "1 año",
     "id": "59363115-6841-4j363-a277-482137545891",
     "move": "yes",
+    "availability": "Junio-Agosto",
     "token": "string"
   }
 ]

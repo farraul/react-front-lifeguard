@@ -13,8 +13,12 @@ const ReservationPage = () => {
               key={lifeguard.id}
               name={lifeguard.name}
               age={lifeguard.age}
-              location={lifeguard.location}
               experience={lifeguard.experience}
+              location={lifeguard.location}
+              community={lifeguard.community}
+              province={lifeguard.province}
+              move={lifeguard.move}
+              availability={lifeguard.availability}
               id={lifeguard.id}
             />
           ))}

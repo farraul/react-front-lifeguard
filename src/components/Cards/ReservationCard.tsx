@@ -1,14 +1,29 @@
 import React from 'react';
 import { Avatar } from 'src/components/Avatar/Avatar';
+import QuestionHoverCard from 'src/components/HoverCards/QuestionHoverCard';
 interface LifeguardProps {
   name: string;
   age: number;
   experience: string;
+  community: string;
+  province: string;
   location: string;
+  move: string;
+  availability: string;
   id: string;
 }
 
-const Lifeguard = ({ name, age, experience, location, id }: LifeguardProps) => {
+const Lifeguard = ({
+  name,
+  age,
+  experience,
+  community,
+  province,
+  location,
+  move,
+  availability,
+  id,
+}: LifeguardProps) => {
   return (
     <div
       key={id}
@@ -22,7 +37,18 @@ const Lifeguard = ({ name, age, experience, location, id }: LifeguardProps) => {
           <div className='text-lg'>{name}</div>
           <div className='mt-2'>Edad:{age} </div>
           <div>Experiencia: {experience} </div>
-          <div>Ubicación: {location}</div>
+          <div>C.Autónoma : {community}</div>
+          <div>Procincia : {province}</div>
+          <div>Localidad : {location}</div>
+          <div>Disponibilidad : {availability}</div>
+          <div className='flex items-center'>
+            Desplazamiento
+            <QuestionHoverCard color='yellow'>
+              <h4 className='text-sm font-semibold'>Desplazamiento</h4>
+              <p className='text-sm'>¿El usuario estaría dispuesto a mudarse?</p>
+            </QuestionHoverCard>
+            : {move}
+          </div>
         </div>
       </div>
       <div className='text-primary rounded-b-md h-9 flex justify-center items-center bg-thirdary'>
