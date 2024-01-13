@@ -10,8 +10,9 @@ type AttributeProps = React.DetailedHTMLProps<
 type typeInput = 'text' | 'password' | 'number' | 'email' | '';
 
 type Props = {
+  label?: string;
+  placeholder?: string;
   id: string;
-  label: string;
   isRequired?: boolean;
   name?: string;
   classAditional?: string;
@@ -45,11 +46,13 @@ const CustomInput = ({
 
   return (
     <div className={`${classAditional || ''} flex flex-col w-full`}>
-      <label className='text-secondary' htmlFor={id}>
-        {label}
-        {isRequired && <b className='text-red-900'>*</b>}
-      </label>
-      <div className='relative w-full '>
+      {label && (
+        <label className='text-secondary' htmlFor={id}>
+          {label}
+          {isRequired && <b className='text-red-900'>*</b>}
+        </label>
+      )}
+      <div className='relative w-full flex items-center '>
         <input
           id={id}
           placeholder={placeholder}
@@ -65,7 +68,7 @@ const CustomInput = ({
         {id === 'password' || id === 'confirmPassword' ? (
           <button
             type='button'
-            className='absolute top-1 hover:scale-110 transition-all active:scale-95  right-3 text-lg'
+            className='absolute top-3 hover:scale-110 transition-all active:scale-95  right-3 text-lg'
             onClick={handlePassword}
           >
             {currentType === type ? <FaEye /> : <FaEyeSlash />}
