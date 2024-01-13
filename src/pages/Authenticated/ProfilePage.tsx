@@ -12,18 +12,17 @@ interface List {
 }
 
 const ProfilePage = () => {
-  const { name, lastName, email, age, location, experience } = useAppSelector(
-    (state) => state.user.userInfo,
-  );
+  const { name, lastName, email, age, experience, community, province, location, move } =
+    useAppSelector((state) => state.user.userInfo);
 
-  function stringAvatar(name: string) {
-    return {
-      sx: {
-        bgcolor: 'grey',
-      },
-      children: `${name.split(' ')[0][0]}`,
-    };
-  }
+  // function stringAvatar(name: string) {
+  //   return {
+  //     sx: {
+  //       bgcolor: 'grey',
+  //     },
+  //     children: `${name.split(' ')[0][0]}`,
+  //   };
+  // }
 
   const [value, setValue] = React.useState(0);
 
@@ -35,6 +34,35 @@ const ProfilePage = () => {
     {
       title: 'Apellido',
       data: lastName,
+    },
+    {
+      title: 'Email',
+      data: email,
+    },
+    {
+      title: 'Edad',
+      data: age,
+    },
+
+    {
+      title: 'Experiencia',
+      data: experience,
+    },
+    {
+      title: 'Comunidad autónoma',
+      data: community,
+    },
+    {
+      title: 'Provincia',
+      data: province,
+    },
+    {
+      title: 'Localidad',
+      data: location,
+    },
+    {
+      title: 'Desplazamiento',
+      data: move,
     },
   ];
 
@@ -50,7 +78,7 @@ const ProfilePage = () => {
         </div>
 
         <div className='p-10 max-w-md bg-gray-300 rounded-lg'>
-          <Avatar {...stringAvatar(name)} />
+          {/* <Avatar {...stringAvatar(name)} /> */}
 
           <ul className='py-8'>
             {listDataProfile.map((field) => (

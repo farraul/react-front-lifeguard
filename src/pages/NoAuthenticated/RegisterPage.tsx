@@ -33,6 +33,7 @@ export default function RegisterPage() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -56,8 +57,8 @@ export default function RegisterPage() {
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className='w-full bg-white  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 z-20'>
-          <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary text-white'>
-            <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-4xl '>
+          <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary'>
+            <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-4xl  text-white'>
               Registra tu cuenta
             </h4>
             <form
@@ -65,15 +66,50 @@ export default function RegisterPage() {
               className='space-y-4 md:space-y-6 flex flex-col justify-center'
             >
               <CustomInput
+                label='name'
+                name='name'
+                error={errors.password?.message as string}
+                register={register}
+                rules={{
+                  required: true,
+                  minLength: {
+                    value: 6,
+                    message: 'Mínimo 3 caracteres.',
+                  },
+                }}
+                type='text'
+                id='name'
+                isRequired={true}
+                placeholder='Nombre'
+              />
+              <CustomInput
+                label='lastname'
+                name='lastname'
+                error={errors.password?.message as string}
+                register={register}
+                rules={{
+                  required: true,
+                  minLength: {
+                    value: 6,
+                    message: 'Mínimo 3 caracteres.',
+                  },
+                }}
+                type='text'
+                id='lastname'
+                isRequired={true}
+                placeholder='Apellidos'
+              />
+              <CustomInput
                 label='email'
                 name='email'
                 error={errors.email?.message as string}
                 register={register}
                 rules={{
                   required: true,
-                  maxLength: {
-                    value: 6,
-                    message: 'This input exceed maxLength.',
+
+                  pattern: {
+                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    message: 'No es un email válido.',
                   },
                 }}
                 type='text'
@@ -89,20 +125,33 @@ export default function RegisterPage() {
                 register={register}
                 rules={{
                   required: true,
-
                   minLength: {
                     value: 6,
-                    message: 'Password should be at-least 6 characters.',
-                  },
-                  pattern: {
-                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                    message: 'Email is not valid.',
+                    message: 'Mínimo 6 caracteres.',
                   },
                 }}
                 type='password'
                 id='password'
                 isRequired={true}
                 placeholder='Paswword'
+              />
+              <CustomInput
+                label='confirmPassword'
+                name='confirmPassword'
+                error={errors.password?.message as string}
+                register={register}
+                rules={{
+                  required: true,
+                  validate: (value) => {
+                    const { password } = getValues();
+                    console.log(value, password);
+                    if (password !== value) return 'Your password does not match';
+                  },
+                }}
+                type='password'
+                id='confirmPassword'
+                isRequired={true}
+                placeholder='Repeat password'
               />
               <Button
                 className='h-12 text-center hover:scale-110 active:scale-90 transition flex items-center text-black bg-white justify-center'

@@ -7,6 +7,19 @@ import profileLifeguard from 'src/stub/profileLifeguardStub.json';
 const token = Cookies.get('jwt_access_token') || '';
 
 const infoDefault = profileLifeguard;
+const infoDefaultNull = {
+  name: '',
+  lastName: '',
+  email: '',
+  age: 0,
+  community: '',
+  province: '',
+  location: '',
+  experience: '',
+  id: '',
+  move: '',
+  token: '',
+};
 
 const tokenDefault = '';
 
@@ -24,7 +37,7 @@ const userSlice = createSlice({
     logout: (state) => {
       Cookies.remove('jwt_access_token');
       state.loading = false;
-      state.userInfo = { ...infoDefault, token: tokenDefault };
+      state.userInfo = { ...infoDefaultNull, token: tokenDefault };
       state.error = null;
     },
     setCredentials: (state, action: PayloadAction<UserInfo>) => {

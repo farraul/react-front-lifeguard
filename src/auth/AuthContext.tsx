@@ -60,11 +60,27 @@ export const AuthProvider = ({ children }: PropsProvider) => {
     jwtService.init();
 
     function success(user: any, message: any) {
+      //check
+
+      const defaultUser = {
+        name: 'Isabel',
+        lastName: 'García',
+        email: 'isabel@gmail.com',
+        age: 30,
+        community: 'AND',
+        province: 'Almería',
+        location: 'El Ejido',
+        experience: '1 año',
+        id: '59363115-6841-4363-a277-482137545891',
+        move: 'yes',
+        token: 'string',
+      };
+
       if (message) {
         dispatch(showMessage({ message }));
       }
 
-      Promise.all([dispatch(setCredentials(user))]).then((values) => {
+      Promise.all([dispatch(setCredentials(defaultUser))]).then((values) => {
         setWaitAuthCheck(false);
       });
     }

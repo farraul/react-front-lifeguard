@@ -6,8 +6,8 @@ import { Spinner } from 'src/components/Loaders';
 import { useGetUserIsLogged } from 'src/hooks/useGetUserIsLogged';
 
 const RouterProvider = () => {
-  let isLogin = useGetUserIsLogged();
-  isLogin = true;
+  const isLogin = useGetUserIsLogged();
+  // isLogin = true;
 
   console.log({ isLogin });
   return (

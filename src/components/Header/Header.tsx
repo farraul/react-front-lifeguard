@@ -86,9 +86,7 @@ function Header() {
                   >
                     servicios
                   </Link> */}
-                <div className=' '>
-                  <DropDownMenu />
-                </div>
+                {isLogged ? <DropDownMenu /> : null}
               </li>
             </ul>
           </div>

@@ -16,6 +16,8 @@ import { AuthProvider } from 'src/auth/AuthContext';
 import RouterProvider from './router/RouterProvider';
 import withAppProviders from './withAppProviders';
 import { CssBaseline } from '@mui/material';
+import { BASE_URL } from './constants/API';
+import axios from 'axios';
 // import { selectCurrentDateFnsLocale } from './store/i18n/i18Selectors';
 // import { ThemeProvider } from '@mui/material/styles';
 // import { useAppSelector } from './hooks/useApp';
@@ -29,8 +31,8 @@ import { CssBaseline } from '@mui/material';
 //   stylisPlugins: [],
 // });
 
-// axios.defaults.baseURL = `${import.meta.env.VITE_PUBLIC_API_URL}/api`;
-// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.baseURL = `${BASE_URL}/api`;
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 const App = () => {
   //   const currentDateFnsLocale = useSelector(selectCurrentDateFnsLocale);

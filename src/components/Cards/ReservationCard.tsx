@@ -27,20 +27,20 @@ const Lifeguard = ({
   return (
     <div
       key={id}
-      className='w-96 bg-theme-primary rounded-md text-theme-primary  shadow-slate-200 shadow-md'
+      className='w-80 bg-theme-primary rounded-md text-theme-primary  shadow-slate-200 shadow-md'
     >
-      <div className='flex px-6 py-8 '>
-        <div className='w-20 flex items-center '>
+      <div className=' p-10 '>
+        <div className=' flex items-center '>
           <Avatar />
+          <div className='ml-4 text-lg'>{name}</div>
         </div>
-        <div className=''>
-          <div className='text-lg'>{name}</div>
-          <div className='mt-2'>Edad:{age} </div>
-          <div>Experiencia: {experience} </div>
-          <div>C.Autónoma : {community}</div>
-          <div>Procincia : {province}</div>
+        <div className='mt-6'>
+          <div className='mt-2'>Experiencia: {experience} </div>
+          <div>Edad: {age} años</div>
+          <div className='mt-2'>C. Autónoma : {community}</div>
+          <div>Provincia : {province}</div>
           <div>Localidad : {location}</div>
-          <div>Disponibilidad : {availability}</div>
+          <div className='mt-2'>Disponibilidad : {availability}</div>
           <div className='flex items-center'>
             Desplazamiento
             <QuestionHoverCard color='yellow'>

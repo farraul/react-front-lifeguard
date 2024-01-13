@@ -14,16 +14,16 @@
     "token": "string"
   },
   {
-    "name": "Isabel",
-    "lastname": "García",
-    "email": "isabel@gmail.com",
-    "age": 30,
+    "name": "Ramon",
+    "lastname": "mas",
+    "email": "ramonl@gmail.com",
+    "age": 23,
     "community": "C. Valenciana",
     "province": "Almería",
     "location": "El Ejido",
     "experience": "1 año",
     "id": "59363115k-6841-4363-a277-482137545891",
-    "move": "yes",
+    "move": "No",
     "availability": "Junio-Agosto",
     "token": "string"
   },

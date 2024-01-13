@@ -19,7 +19,7 @@ import { setCredentials } from 'src/store/user/userSlice';
 export const PopUpEditProfile = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector<UserInfo>((state) => state.user.userInfo);
-  const { lastName, age, location, experience } = user;
+  const { name, lastName, age, experience, community, province, location, move } = user;
 
   const [profile, setProfile] = useState<UserInfo>(user);
 

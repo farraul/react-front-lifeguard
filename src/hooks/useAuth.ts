@@ -11,12 +11,17 @@ interface LoginData {
 
 const useAuth = (type: typeAuth) => {
   const onSubmit = (user: UserInfo | LoginData) => {
+    console.log({ user });
     if (type === 'login') {
       const { email, password } = user as LoginData;
+
+      // if (email === '0' && password === '0') { }
 
       jwtService
         .signInWithEmailAndPassword(email, password)
         .then((_user) => {
+          console.log('Looged');
+
           // No need to do anything, user data will be set at app/auth/AuthContext
         })
         .catch((error) => {
@@ -24,7 +29,9 @@ const useAuth = (type: typeAuth) => {
         })
         .finally(() => {});
     } else {
-      jwtService.createUser(user);
+      console.log('User created');
+
+      // jwtService.createUser(user);
     }
   };
 

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import jwtService from 'src/auth/jwtService';
 import { Button } from 'src/components/ui/button';
 import {
   DropdownMenu,
@@ -14,9 +15,18 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from 'src/components/ui/dropdown-menu';
+import { useAppDispatch } from 'src/hooks/useApp';
+import { logout } from 'src/store/user/userSlice';
 
 export function DropDownMenu() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // setToken('');
+    navigate('/');
+  };
 
   return (
     <DropdownMenu>
@@ -35,7 +45,12 @@ export function DropDownMenu() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem className='cursor-pointer'>
+        <DropdownMenuItem
+          className='cursor-pointer'
+          onClick={() => {
+            console.log('out'), jwtService.logout(), navigate('/');
+          }}
+        >
           Log out
           <DropdownMenuShortcut>→</DropdownMenuShortcut>
         </DropdownMenuItem>

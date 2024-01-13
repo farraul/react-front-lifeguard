@@ -31,7 +31,6 @@ function LoginPage() {
     onSubmit(value);
   };
 
-  onSubmit;
   return (
     <>
       <img
