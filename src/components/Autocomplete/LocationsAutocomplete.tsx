@@ -1,109 +1,46 @@
-import React, { useState } from 'react';
-import { render } from 'react-dom';
-import { useCombobox } from 'downshift';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 import locaties from 'src/configs/locaties.json';
+import { useEffect, useState } from 'react';
+const options = ['Option 1', 'Option 2'];
 
-const items = [
-  'Neptunium',
-  'Plutonium',
-  'Americium',
-  'Curium',
-  'Berkelium',
-  'Californium',
-  'Einsteinium',
-  'Fermium',
-  'Mendelevium',
-  'Nobelium',
-  'Lawrencium',
-  'Rutherfordium',
-  'Dubnium',
-  'Seaborgium',
-  'Bohrium',
-  'Hassium',
-  'Meitnerium',
-  'Darmstadtium',
-  'Roentgenium',
-  'Copernicium',
-  'Nihonium',
-  'Flerovium',
-  'Moscovium',
-  'Livermorium',
-  'Tennessine',
-  'Oganesson',
-];
+export default function LocationsAutocomplete({ provinceSelected, isDisabled }: any) {
+  console.log({ provinceSelected });
+  let locatiesFormatted: any = [];
+  const [inputValue, setInputValue] = useState(locatiesFormatted[0]);
+  console.log('LocationsAutocomplete  inputValue:', inputValue);
 
-function DropdownCombobox({ selectedItem, handleSelectedItemChange, provinceSelected }: any) {
-  console.log('DropdownCombobox  provinceSelected:', provinceSelected);
-
-  const locatiesFormatted = locaties.filter((location, index) => {
-    console.log(index);
-    console.log(location.parent_code, provinceSelected.provinceSelected);
-    if (location.parent_code == provinceSelected.provinceSelected) {
-      console.log('in');
-
+  if (provinceSelected) {
+    locatiesFormatted = locaties[provinceSelected].map((location, index) => {
       return location.label;
-    }
-  });
+    });
 
-  console.log({ locatiesFormatted });
-  const [inputItems, setInputItems] = useState(locaties);
-  const {
-    isOpen,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getInputProps,
-    highlightedIndex,
-    getItemProps,
-  } = useCombobox({
-    items: inputItems,
-    selectedItem,
-    onSelectedItemChange: handleSelectedItemChange,
-    onInputValueChange: ({ inputValue }) => {
-      setInputItems(
-        items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())),
-      );
-    },
-  });
-  return (
-    <div>
-      <label {...getLabelProps()}>Choose an element:</label>
-      <div>
-        <input {...getInputProps()} />
-        <button type='button' {...getToggleButtonProps()} aria-label='toggle menu'>
-          &#8595;
-        </button>
-      </div>
-      <ul {...getMenuProps()}>
-        {isOpen &&
-          inputItems.map((item, index) => (
-            <li
-              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
-              key={`${item}${index}`}
-              {...getItemProps({ item, index })}
-            >
-              {item}
-            </li>
-          ))}
-      </ul>
-    </div>
-  );
-}
-export default function ControlledComboboxes(provinceSelected: any) {
-  console.log('ControlledComboboxes  provinceSelected:', provinceSelected);
-
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  function handleSelectedItemChange({ selectedItem }: any) {
-    setSelectedItem(selectedItem);
+    // useEffect(() => {
+    //   if (provinceSelected) {
+    //     setInputValue(locatiesFormatted[0]);
+    //   }
+    // }, [provinceSelected]);
   }
 
+  console.log({ inputValue });
+
   return (
     <div>
-      <DropdownCombobox
-        selectedItem={selectedItem}
-        handleSelectedItemChange={handleSelectedItemChange}
-        provinceSelected={provinceSelected}
+      <Autocomplete
+        disabled={isDisabled}
+        className='bg-white w-full h-10 flex items-center rounded-md'
+        value={locatiesFormatted[0] || 'Localidad'}
+        // onChange={(event: any, newValue: string | null) => {
+        //   setValue(newValue);
+        // }}
+        inputValue={inputValue}
+        onInputChange={(event, newInputValue) => {
+          setInputValue(newInputValue);
+        }}
+        id='controllable-states-demo'
+        options={locatiesFormatted || ''}
+        sx={{}}
+        renderInput={(params) => <TextField {...params} label='' />}
       />
     </div>
   );

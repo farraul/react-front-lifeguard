@@ -46,6 +46,7 @@ export default function RegisterPage() {
 
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
+  console.log({ provinceSelected });
   const [locationSelected, setLocationSelected] = useState('');
 
   type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
@@ -157,6 +158,7 @@ export default function RegisterPage() {
                 <Select
                   onValueChange={(e) => {
                     setCcaaSelected(e);
+                    setProvinceSelected('');
                   }}
                 >
                   <SelectTrigger className='w-[100%] bg-white'>
@@ -219,7 +221,11 @@ export default function RegisterPage() {
                   </SelectContent>
                 </Select>
               </div> */}
-              {provinceSelected && <LocationsAutoCompelte provinceSelected={provinceSelected} />}
+
+              <LocationsAutoCompelte
+                provinceSelected={provinceSelected}
+                isDisabled={provinceSelected === '' ? true : false}
+              />
 
               <CustomInput
                 name='password'

@@ -2,47 +2,47 @@
   {
     "parent_code": "0",
     "label": "Andalucía",
-    "code": "01"
+    "code": "1"
   },
   {
     "parent_code": "0",
     "label": "Aragón",
-    "code": "02"
+    "code": "2"
   },
   {
     "parent_code": "0",
     "label": "Asturias, Principado de",
-    "code": "03"
+    "code": "3"
   },
   {
     "parent_code": "0",
     "label": "Balears, Illes",
-    "code": "04"
+    "code": "4"
   },
   {
     "parent_code": "0",
     "label": "Canarias",
-    "code": "05"
+    "code": "5"
   },
   {
     "parent_code": "0",
     "label": "Cantabria",
-    "code": "06"
+    "code": "6"
   },
   {
     "parent_code": "0",
     "label": "Castilla y León",
-    "code": "07"
+    "code": "7"
   },
   {
     "parent_code": "0",
     "label": "Castilla - La Mancha",
-    "code": "08"
+    "code": "8"
   },
   {
     "parent_code": "0",
     "label": "Cataluńa",
-    "code": "09"
+    "code": "9"
   },
   {
     "parent_code": "0",
@@ -81,7 +81,7 @@
   },
   {
     "parent_code": "0",
-    "label": "Rioja, La",
+    "label": "La Rioja",
     "code": "17"
   },
   {
