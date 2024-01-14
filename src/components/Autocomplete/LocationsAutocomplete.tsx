@@ -1,46 +1,37 @@
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import locaties from 'src/configs/locaties.json';
 import { useEffect, useState } from 'react';
-const options = ['Option 1', 'Option 2'];
+import Autocomplete from '@mui/joy/Autocomplete';
 
 export default function LocationsAutocomplete({ provinceSelected, isDisabled }: any) {
-  console.log({ provinceSelected });
   let locatiesFormatted: any = [];
-  const [inputValue, setInputValue] = useState(locatiesFormatted[0]);
-  console.log('LocationsAutocomplete  inputValue:', inputValue);
+  const [inputValue, setInputValue] = useState('');
 
   if (provinceSelected) {
     locatiesFormatted = locaties[provinceSelected].map((location, index) => {
       return location.label;
     });
-
-    // useEffect(() => {
-    //   if (provinceSelected) {
-    //     setInputValue(locatiesFormatted[0]);
-    //   }
-    // }, [provinceSelected]);
   }
-
-  console.log({ inputValue });
+  useEffect(() => {
+    setInputValue('');
+  }, [isDisabled]);
 
   return (
     <div>
       <Autocomplete
+        placeholder='Choose a country'
+        id='country-select-demo'
         disabled={isDisabled}
-        className='bg-white w-full h-10 flex items-center rounded-md'
-        value={locatiesFormatted[0] || 'Localidad'}
-        // onChange={(event: any, newValue: string | null) => {
-        //   setValue(newValue);
-        // }}
-        inputValue={inputValue}
         onInputChange={(event, newInputValue) => {
           setInputValue(newInputValue);
         }}
-        id='controllable-states-demo'
-        options={locatiesFormatted || ''}
-        sx={{}}
-        renderInput={(params) => <TextField {...params} label='' />}
+        options={locatiesFormatted}
+        sx={{
+          '&.Mui-disabled': {
+            background: '#80979e',
+            color: '#041b23',
+          },
+          color: 'black',
+        }}
       />
     </div>
   );

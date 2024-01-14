@@ -37,6 +37,7 @@ const initialState: SignUp = {
 type Inputs = {
   email: string;
   password: string;
+  community: string;
 };
 
 export default function RegisterPage() {
@@ -46,7 +47,7 @@ export default function RegisterPage() {
 
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
-  console.log({ provinceSelected });
+
   const [locationSelected, setLocationSelected] = useState('');
 
   type InputChangeEvent<T> = ChangeEvent<HTMLInputElement> & {
@@ -159,6 +160,7 @@ export default function RegisterPage() {
                   onValueChange={(e) => {
                     setCcaaSelected(e);
                     setProvinceSelected('');
+                    register('community');
                   }}
                 >
                   <SelectTrigger className='w-[100%] bg-white'>
