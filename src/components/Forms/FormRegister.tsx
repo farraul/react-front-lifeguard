@@ -15,6 +15,7 @@ import {
 import ccaa from 'src/configs/ccaa.json';
 import provinces from 'src/configs/provinces.json';
 import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
+import experiences from 'src/configs/experiences';
 
 const initialState: SignUp = {
   name: '',
@@ -40,6 +41,11 @@ export const FormRegister = () => {
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
 
+  const [isDisabled, setIsDisabled] = useState({
+    province: true,
+    location: true,
+  });
+
   const {
     register,
     handleSubmit,
@@ -49,6 +55,7 @@ export const FormRegister = () => {
   } = useForm<SignUp>({
     defaultValues: initialState,
   });
+  //   const {} = getValues();
 
   const onSubmit: SubmitHandler<Inputs> = (value) => {
     console.log('data: ', value);
@@ -131,6 +138,7 @@ export const FormRegister = () => {
                 field.onChange(e);
                 setCcaaSelected(e);
                 setProvinceSelected('');
+                setIsDisabled({ province: false, location: true });
               }}
             >
               <SelectTrigger className='w-[100%] bg-white'>
@@ -149,57 +157,63 @@ export const FormRegister = () => {
         />
       </div>
       <div className=''>
+        <Controller
+          name='province'
+          control={control}
+          render={({ field }) => (
+            <Select
+              disabled={isDisabled.province}
+              onValueChange={(e) => {
+                field.onChange(e);
+                setProvinceSelected(e);
+                setIsDisabled({ ...isDisabled, location: false });
+              }}
+            >
+              <SelectTrigger className='w-[100%] bg-white'>
+                <SelectValue placeholder='Provincias' />
+              </SelectTrigger>
+              <SelectContent>
+                {provinces.map((province) => {
+                  console.log;
+                  if (province.parent_code === ccaaSelected) {
+                    return (
+                      <SelectItem key={province.label} value={province.code}>
+                        {province.label}
+                      </SelectItem>
+                    );
+                  }
+                })}
+              </SelectContent>
+            </Select>
+          )}
+        />
+      </div>
+
+      <LocationsAutoCompelte
+        provinceSelected={provinceSelected}
+        isDisabled={isDisabled.location}
+        control={control}
+      />
+      <div className=''>
         <Select
-          disabled={ccaaSelected === '' ? true : false}
-          onValueChange={(e) => {
-            setProvinceSelected(e);
-          }}
+        //   onValueChange={(e) => {
+        //     setProvinceSelected(e);
+        //   }}
         >
           <SelectTrigger className='w-[100%] bg-white'>
-            <SelectValue placeholder='Provincias' />
+            <SelectValue placeholder='Experiencia' />
           </SelectTrigger>
           <SelectContent>
-            {provinces.map((province) => {
-              if (province.parent_code === ccaaSelected) {
-                return (
-                  <SelectItem key={province.label} value={province.code}>
-                    {province.label}
-                  </SelectItem>
-                );
-              }
+            {experiences.map((experience) => {
+              return (
+                <SelectItem key={experience} value={experience}>
+                  {experience}
+                </SelectItem>
+              );
             })}
           </SelectContent>
         </Select>
       </div>
-
-      {/* <div>
-                <Select
-                  disabled={provinceSelected === '' ? true : false}
-                  onValueChange={(e) => {
-                    setLocationSelected(e);
-                  }}
-                >
-                  <SelectTrigger className='w-[100%] bg-white'>
-                    <SelectValue placeholder='Localidades' />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {locaties.map((location) => {
-                      if (location.parent_code === provinceSelected) {
-                        return (
-                          <SelectItem key={location.label} value={location.code}>
-                            {location.label}
-                          </SelectItem>
-                        );
-                      }
-                    })}
-                  </SelectContent>
-                </Select>
-              </div> */}
-
-      <LocationsAutoCompelte
-        provinceSelected={provinceSelected}
-        isDisabled={provinceSelected === '' ? true : false}
-      />
 
       <CustomInput
         name='password'
