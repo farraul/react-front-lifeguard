@@ -18,7 +18,7 @@ export default function LocationsAutocomplete({ provinceSelected, isDisabled }: 
   return (
     <div>
       <Autocomplete
-        placeholder='Choose a country'
+        placeholder='Localidad'
         id='country-select-demo'
         disabled={isDisabled}
         onInputChange={(event, newInputValue) => {
