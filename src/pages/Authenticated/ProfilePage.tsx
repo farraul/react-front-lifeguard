@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
   return (
     <article>
-      <section className='w-1/2'>
+      <section className='w-full items-center flex-col flex justify-center'>
         <div className='pb-10 flex flex-row items-center'>
           <div>
             <img src='/assets/images/icons/profile.svg' />

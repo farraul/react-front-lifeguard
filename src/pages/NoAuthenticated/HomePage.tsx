@@ -13,9 +13,9 @@ const HomePage = () => {
         style={{ objectFit: 'cover' }}
       /> */}
       <article>
-        <h1 className='text-center text-5xl '>Benvenidos a Lifeguard</h1>
-        <section className='w-full items-center flex-col flex justify-center  mt-20'>
-          <h2 className='text-center text-2xl '>Selecciona lo que estas buscando</h2>
+        <section className='w-full items-center flex-col flex justify-center  bg-blue-300'>
+          <h1 className='text-center text-5xl'>Benvenidos a Lifeguard</h1>
+          <h2 className='text-center text-2xl mt-24'>Selecciona lo que estas buscando</h2>
           <div className='w-full flex justify-center gap-20 max-w-7xl mt-10'>
             <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
               <p className=''>Para proveedores</p>

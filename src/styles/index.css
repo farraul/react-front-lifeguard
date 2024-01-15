@@ -77,3 +77,9 @@
   }
 }
 
+section {
+  padding-top: 120px;
+  padding-right: 32px;
+  padding-bottom: 120px;
+  padding-left: 32px;
+}
