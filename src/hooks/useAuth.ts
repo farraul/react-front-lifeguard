@@ -1,6 +1,7 @@
 import React from 'react';
 import jwtService from 'src/auth/jwtService';
 import { UserInfo } from 'src/models/user/user';
+import { useNavigate } from 'react-router-dom';
 
 type typeAuth = 'login' | 'register';
 
@@ -10,8 +11,9 @@ interface LoginData {
 }
 
 const useAuth = (type: typeAuth) => {
+  const navigate = useNavigate();
+
   const onSubmit = (user: UserInfo | LoginData) => {
-    console.log({ user });
     if (type === 'login') {
       const { email, password } = user as LoginData;
 
@@ -20,6 +22,7 @@ const useAuth = (type: typeAuth) => {
       jwtService
         .signInWithEmailAndPassword(email, password)
         .then((_user) => {
+          navigate('/');
           // No need to do anything, user data will be set at app/auth/AuthContext
         })
         .catch((error) => {

@@ -21,18 +21,27 @@ export const routesConfigAuth = createBrowserRouter([
             index: true,
             element: (
               <Suspense fallback={<Spinner />}>
+                <ProfilePage />
+              </Suspense>
+            ),
+          },
+          {
+            path: '/reserve-lifeguard',
+            element: (
+              <Suspense fallback={<Spinner />}>
                 <ReserveLifeguardPage />
               </Suspense>
             ),
           },
           {
-            path: '/profile',
+            path: '/reserve-lead',
             element: (
               <Suspense fallback={<Spinner />}>
-                <ProfilePage />
+                <ReserveLeadPage />
               </Suspense>
             ),
           },
+
           {
             path: '*',
             element: <ErrorPage />,

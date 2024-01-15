@@ -36,18 +36,18 @@ export function DropDownMenu() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className='w-56'>
-        <DropdownMenuItem className='cursor-pointer' onClick={() => navigate('/')}>
+        {/* <DropdownMenuItem className='cursor-pointer' onClick={() => navigate('/')}>
           Home
         </DropdownMenuItem>
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator /> */}
 
-        <DropdownMenuItem className='cursor-pointer' onClick={() => navigate('/profile')}>
+        <DropdownMenuItem className='cursor-pointer' onClick={() => navigate('/')}>
           Profile
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Comprar</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem onClick={() => navigate('/')}>
+        <DropdownMenuCheckboxItem onClick={() => navigate('/reserve-lifeguard')}>
           Socorrista
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem onClick={() => navigate('/reserve-lead')}>
