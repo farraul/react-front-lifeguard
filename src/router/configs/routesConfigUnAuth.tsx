@@ -3,12 +3,18 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Spinner } from 'src/components/Loaders';
 import { Layout } from 'src/layouts';
 
-const LoginPage = lazy(() => import('src/pages/noAuthenticated/LoginPage'));
-const RegisterPage = lazy(() => import('src/pages/noAuthenticated/RegisterPage'));
-const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
 const Home = lazy(() => import('src/pages/noAuthenticated/HomePage'));
-const ReserveLeadPage = lazy(() => import('src/pages/authenticated/ReserveLeadPage '));
-const ReserveLifeguardPage = lazy(() => import('src/pages/authenticated/ReserveLifeguardPage'));
+const LoginPage = lazy(() => import('src/pages/noAuthenticated/LoginPage'));
+
+const LifeguardRegisterPage = lazy(() => import('src/pages/noAuthenticated/LifeguardRegisterPage'));
+const ProviderRegisterPage = lazy(() => import('src/pages/noAuthenticated/ProviderRegisterPage'));
+const AdministratorRegisterPage = lazy(
+  () => import('src/pages/noAuthenticated/AdministratorRegisterPage'),
+);
+
+const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
+// const ReserveLeadPage = lazy(() => import('src/pages/authenticated/ReserveLeadPage '));
+// const ReserveLifeguardPage = lazy(() => import('src/pages/authenticated/ReserveLifeguardPage'));
 
 export const routesConfigUnAuth = createBrowserRouter([
   {
@@ -36,29 +42,47 @@ export const routesConfigUnAuth = createBrowserRouter([
             ),
           },
           {
-            path: '/register',
+            path: '/register-lifeguard',
             element: (
               <Suspense fallback={<Spinner />}>
-                <RegisterPage />
+                <LifeguardRegisterPage />
               </Suspense>
             ),
           },
+
           {
-            path: '/reserve-lead',
+            path: '/register-administrator',
             element: (
               <Suspense fallback={<Spinner />}>
-                <ReserveLeadPage />
+                <AdministratorRegisterPage />
               </Suspense>
             ),
           },
+
           {
-            path: '/reserve-lifeguard',
+            path: '/register-provider',
             element: (
               <Suspense fallback={<Spinner />}>
-                <ReserveLifeguardPage />
+                <ProviderRegisterPage />
               </Suspense>
             ),
           },
+          // {
+          //   path: '/reserve-lead',
+          //   element: (
+          //     <Suspense fallback={<Spinner />}>
+          //       <ReserveLeadPage />
+          //     </Suspense>
+          //   ),
+          // },
+          // {
+          //   path: '/reserve-lifeguard',
+          //   element: (
+          //     <Suspense fallback={<Spinner />}>
+          //       <ReserveLifeguardPage />
+          //     </Suspense>
+          //   ),
+          // },
           {
             path: '*',
             element: <ErrorPage />,

@@ -38,7 +38,7 @@ type Inputs = {
   community: string;
 };
 
-export const FormRegister = () => {
+export const LifeguardRegisterForm = () => {
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
   const [isDisabled, setIsDisabled] = useState({

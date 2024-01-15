@@ -18,36 +18,46 @@ const HomePage = () => {
           <h2 className='text-center text-2xl '>Selecciona lo que estas buscando</h2>
           <div className='w-full flex justify-center gap-20 max-w-7xl mt-10'>
             <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
-              <p className=''>Para empresas de socorrismo</p>
+              <p className=''>Para proveedores</p>
               <p className='text-3xl mt-4'>Consigue clientes</p>
-              {/* <p className='mt-8'>Quiero conseguir clientes o contratar socorristas.</p> */}
+              <p className='mt-8'>
+                ¿Eres una empresa de socorrismo? Accede a clientes que buscan socorristas, envía
+                presupuestos y publica ofertas de empleo para contratar socorristas.
+              </p>
               <button
                 className='mt-8 bg-secondary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/reserve-lead')}
+                onClick={() => navigate('/register-provider')}
               >
-                Buscar clientes
+                Empezar gratis
               </button>
             </div>
             <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
-              <p>Para administradores de pisicinas</p>
+              <p>Para administradores</p>
 
               <p className='text-3xl mt-4'>Encuentra socorrista</p>
-              {/* <p className='mt-8'> Administro una piscina y necesito un socorristas.</p> */}
+              <p className='mt-8'>
+                {' '}
+                ¿Administras una finca o urbanización? Publica anuncios de búsqueda de socorristas,
+                solicita presupuestos a empresas y contrata servicios de forma sencilla.
+              </p>
               <button
                 className='mt-8 bg-secondary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/reserve-lifeguard')}
+                onClick={() => navigate('/register-administrator')}
               >
-                Buscar socorrista
+                Regístrate gratis
               </button>
             </div>
             <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
               <p>Para socorristas</p>
 
               <p className='text-3xl mt-4'>Consigue empleo</p>
-              {/* <p className='mt-8'> Estoy buscando empleo para trabajar en una pisicina</p> */}
+              <p className='mt-8'>
+                ¿Eres socorrista y estás desempleado? Crea tu perfil, inscríbete a ofertas de
+                trabajo y recibe oportunidades de empleo por parte de las empresas de socorrismo.
+              </p>
               <button
                 className='mt-8 bg-secondary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/reserve-lifeguard')}
+                onClick={() => navigate('/register-lifeguard')}
               >
                 Registro gratuito
               </button>

@@ -1,8 +1,8 @@
 import { CssBaseline, Container } from '@mui/material';
 
-import { FormRegister } from 'src/components/Forms/FormRegister';
+import { LifeguardRegisterForm } from 'src/components/Forms/LifeguardRegisterForm ';
 
-export default function RegisterPage() {
+export default function LifeguardRegisterPage() {
   return (
     <>
       <img
@@ -14,10 +14,10 @@ export default function RegisterPage() {
         <CssBaseline />
         <div className='w-full bg-white  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 z-20'>
           <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary'>
-            <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-4xl  text-white'>
-              Registra tu cuenta
+            <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-2xl  text-white'>
+              Registrate como socorrista
             </h4>
-            <FormRegister />
+            <LifeguardRegisterForm />
           </div>
         </div>
       </Container>
