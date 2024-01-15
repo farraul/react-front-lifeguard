@@ -6,6 +6,9 @@ import { Layout } from 'src/layouts';
 const LoginPage = lazy(() => import('src/pages/noAuthenticated/LoginPage'));
 const RegisterPage = lazy(() => import('src/pages/noAuthenticated/RegisterPage'));
 const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
+const Home = lazy(() => import('src/pages/noAuthenticated/HomePage'));
+const ReserveLeadPage = lazy(() => import('src/pages/authenticated/ReserveLeadPage '));
+const ReserveLifeguardPage = lazy(() => import('src/pages/authenticated/ReserveLifeguardPage'));
 
 export const routesConfigUnAuth = createBrowserRouter([
   {
@@ -20,6 +23,14 @@ export const routesConfigUnAuth = createBrowserRouter([
             index: true,
             element: (
               <Suspense fallback={<Spinner />}>
+                <Home />
+              </Suspense>
+            ),
+          },
+          {
+            path: '/login',
+            element: (
+              <Suspense fallback={<Spinner />}>
                 <LoginPage />
               </Suspense>
             ),
@@ -29,6 +40,22 @@ export const routesConfigUnAuth = createBrowserRouter([
             element: (
               <Suspense fallback={<Spinner />}>
                 <RegisterPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: '/reserve-lead',
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <ReserveLeadPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: '/reserve-lifeguard',
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <ReserveLifeguardPage />
               </Suspense>
             ),
           },

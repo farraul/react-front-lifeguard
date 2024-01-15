@@ -87,6 +87,11 @@ function Header() {
                     servicios
                   </Link> */}
                 {isLogged ? <DropDownMenu /> : null}
+                {!isLogged ? (
+                  <button className='text-theme-primary' onClick={() => navigate('/login')}>
+                    Login
+                  </button>
+                ) : null}
               </li>
             </ul>
           </div>

@@ -20,8 +20,6 @@ const useAuth = (type: typeAuth) => {
       jwtService
         .signInWithEmailAndPassword(email, password)
         .then((_user) => {
-          console.log('Looged');
-
           // No need to do anything, user data will be set at app/auth/AuthContext
         })
         .catch((error) => {

@@ -5,22 +5,23 @@ import Layout from 'src/layouts';
 
 const ProfilePage = lazy(() => import('src/pages/authenticated/ProfilePage'));
 const ErrorPage = lazy(() => import('src/pages/authenticated/ErrorPage'));
-const ReservationPage = lazy(() => import('src/pages/authenticated/ReservationPage'));
+const ReserveLifeguardPage = lazy(() => import('src/pages/authenticated/ReserveLifeguardPage'));
+const ReserveLeadPage = lazy(() => import('src/pages/authenticated/ReserveLeadPage '));
 
 export const routesConfigAuth = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    errorElement: <ErrorPage />,
+    errorElement: <p>falla</p>,
     children: [
       {
-        errorElement: <ErrorPage />,
+        errorElement: <p>falla</p>,
         children: [
           {
             index: true,
             element: (
               <Suspense fallback={<Spinner />}>
-                <ReservationPage />
+                <ReserveLifeguardPage />
               </Suspense>
             ),
           },

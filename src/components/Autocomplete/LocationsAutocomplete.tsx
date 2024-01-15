@@ -7,9 +7,10 @@ export default function LocationsAutocomplete({ provinceSelected, isDisabled, co
   let locatiesFormatted: any = [];
   const [inputValue, setInputValue] = useState('');
 
-  const selectedLocations = locaties[provinceSelected];
+  const locatiesMap = locaties as any;
+
   if (provinceSelected) {
-    locatiesFormatted = selectedLocations.map((location: any) => {
+    locatiesFormatted = locatiesMap[provinceSelected].map((location: any) => {
       return location.label;
     });
   }

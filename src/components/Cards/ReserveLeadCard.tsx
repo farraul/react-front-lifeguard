@@ -3,25 +3,25 @@ import { Avatar } from 'src/components/Avatar/Avatar';
 import QuestionHoverCard from 'src/components/HoverCards/QuestionHoverCard';
 interface LifeguardProps {
   name: string;
-  age: number;
-  experience: string;
   community: string;
   province: string;
   location: string;
-  move: string;
-  availability: string;
+  weeklyhours: string;
+  numberworkers: string;
+  start: string;
+  end: string;
   id: string;
 }
 
-const Lifeguard = ({
+const ReserveLeadCard = ({
   name,
-  age,
-  experience,
   community,
   province,
   location,
-  move,
-  availability,
+  weeklyhours,
+  numberworkers,
+  start,
+  end,
   id,
 }: LifeguardProps) => {
   return (
@@ -35,20 +35,22 @@ const Lifeguard = ({
           <div className='ml-4 text-lg'>{name}</div>
         </div>
         <div className='mt-6'>
-          <div className='mt-2'>Experiencia: {experience} </div>
-          <div>Edad: {age} años</div>
           <div className='mt-2'>C. Autónoma : {community}</div>
           <div>Provincia : {province}</div>
           <div>Localidad : {location}</div>
-          <div className='mt-2'>Disponibilidad : {availability}</div>
-          <div className='flex items-center'>
+          <div className='mt-4'>Fecha inicio : {start}</div>
+          <div className=''>Fecha fin : {end}</div>
+          <div className='mt-4'>Horas semanales: {weeklyhours} </div>
+          <div className=''>Número trabjadores: {numberworkers} </div>
+
+          {/* <div className='flex items-center'>
             Desplazamiento
             <QuestionHoverCard color='yellow'>
               <h4 className='text-sm font-semibold'>Desplazamiento</h4>
               <p className='text-sm'>¿El usuario estaría dispuesto a mudarse?</p>
             </QuestionHoverCard>
-            : {move}
-          </div>
+            : {}
+          </div> */}
         </div>
       </div>
       <div className='text-primary rounded-b-md h-9 flex justify-center items-center bg-thirdary'>
@@ -63,4 +65,4 @@ const Lifeguard = ({
   );
 };
 
-export default Lifeguard;
+export default ReserveLeadCard;

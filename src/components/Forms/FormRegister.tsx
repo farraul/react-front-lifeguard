@@ -1,6 +1,6 @@
 import { SignUp } from 'src/models/auth';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
 import { Button } from 'src/components/PrimitiveElements/Button';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
@@ -16,6 +16,7 @@ import ccaa from 'src/configs/ccaa.json';
 import provinces from 'src/configs/provinces.json';
 import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
 import experiences from 'src/configs/experiences';
+import { useAppSelector } from 'src/hooks/useApp';
 
 const initialState: SignUp = {
   name: '',
@@ -40,12 +41,10 @@ type Inputs = {
 export const FormRegister = () => {
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
-
   const [isDisabled, setIsDisabled] = useState({
     province: true,
     location: true,
   });
-
   const {
     register,
     handleSubmit,
@@ -55,6 +54,8 @@ export const FormRegister = () => {
   } = useForm<SignUp>({
     defaultValues: initialState,
   });
+  const navigate = useNavigate();
+
   //   const {} = getValues();
 
   const onSubmit: SubmitHandler<Inputs> = (value) => {

@@ -3,6 +3,7 @@ import jwtService from 'src/auth/jwtService';
 import { Button } from 'src/components/ui/button';
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
@@ -44,6 +45,14 @@ export function DropDownMenu() {
           Profile
         </DropdownMenuItem>
         <DropdownMenuSeparator />
+        <DropdownMenuLabel>Comprar</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem onClick={() => navigate('/')}>
+          Socorrista
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem onClick={() => navigate('/reserve-lead')}>
+          Lead
+        </DropdownMenuCheckboxItem>
 
         <DropdownMenuItem
           className='cursor-pointer'

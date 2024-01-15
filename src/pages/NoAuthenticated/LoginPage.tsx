@@ -31,6 +31,12 @@ function LoginPage() {
     onSubmit(value);
   };
 
+  // useEffect(() => {
+  //   if (success) {
+  //     navigate('/login');
+  //   }
+  // }, [navigate, success]);
+
   return (
     <>
       <img

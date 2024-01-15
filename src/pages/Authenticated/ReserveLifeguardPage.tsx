@@ -1,12 +1,15 @@
 import React from 'react';
-import ReservationCard from 'src/components/Cards/ReservationCard';
+import ReservationCard from 'src/components/Cards/ReserveLifeguardCard';
 import lifeguardsUsers from 'src/stub/lifeguardsStub.json';
 
-const ReservationPage = () => {
+const ReserveLifeguard = () => {
   return (
     <>
       <article>
-        <h1 className='text-center text text-4xl'>Contacta con tu socorrista</h1>
+        <h1 className='text-center text-4xl'>Encuentra tu socorrista</h1>
+        <p className='text-center mt-2'>
+          Contacta con los siguienes socorristas para contratarlos.
+        </p>
         <section className='flex gap-x-6 gap-y-6 flex-wrap justify-center mt-20'>
           {lifeguardsUsers.map((lifeguard) => (
             <ReservationCard
@@ -28,4 +31,4 @@ const ReservationPage = () => {
   );
 };
 
-export default ReservationPage;
+export default ReserveLifeguard;

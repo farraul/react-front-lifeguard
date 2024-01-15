@@ -6,6 +6,7 @@ import jwtService from './jwtService';
 import Cookies from 'js-cookie';
 import { useAppDispatch } from 'src/hooks/useApp';
 import { Spinner } from 'src/components/Loaders';
+import profileLifeguardStub from 'src/stub/profileLifeguardStub.json';
 
 type PropsProvider = {
   children: React.ReactNode;
@@ -62,25 +63,25 @@ export const AuthProvider = ({ children }: PropsProvider) => {
     function success(user: any, message: any) {
       //check
 
-      const defaultUser = {
-        name: 'Isabel',
-        lastName: 'García',
-        email: 'isabel@gmail.com',
-        age: 30,
-        community: 'AND',
-        province: 'Almería',
-        location: 'El Ejido',
-        experience: '1 año',
-        id: '59363115-6841-4363-a277-482137545891',
-        move: 'yes',
-        token: 'string',
-      };
+      // const defaultUser = {
+      //   name: 'Isabel',
+      //   lastName: 'García',
+      //   email: 'isabel@gmail.com',
+      //   age: 30,
+      //   community: 'AND',
+      //   province: 'Almería',
+      //   location: 'El Ejido',
+      //   experience: '1 año',
+      //   id: '59363115-6841-4363-a277-482137545891',
+      //   move: 'yes',
+      //   token: 'toek',
+      // };
 
       if (message) {
         dispatch(showMessage({ message }));
       }
 
-      Promise.all([dispatch(setCredentials(defaultUser))]).then((values) => {
+      Promise.all([dispatch(setCredentials(profileLifeguardStub))]).then((values) => {
         setWaitAuthCheck(false);
       });
     }
