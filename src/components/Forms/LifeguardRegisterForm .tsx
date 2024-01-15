@@ -22,7 +22,7 @@ const initialState: SignUp = {
   name: '',
   lastName: '',
   email: '',
-  age: 0,
+  age: undefined,
   community: '',
   province: '',
   location: '',

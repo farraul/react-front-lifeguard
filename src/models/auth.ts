@@ -8,7 +8,7 @@ export interface SignUp {
   name: string;
   lastName: string;
   email: string;
-  age: number;
+  age: number | undefined;
   community: string;
   province: string;
   location: string;

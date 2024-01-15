@@ -14,8 +14,8 @@ const ReserveLifeguard = () => {
           <div className='flex gap-x-6 gap-y-6 flex-wrap justify-center mt-20'>
             {lifeguardsUsers.map((lifeguard) => (
               <ReservationCard
-                key={lifeguard.id}
                 name={lifeguard.name}
+                key={lifeguard.id}
                 age={lifeguard.age}
                 experience={lifeguard.experience}
                 location={lifeguard.location}
