@@ -18,8 +18,9 @@ export default function AdministratorRegisterPage() {
             <div className='w-full bg-white  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 z-20'>
               <div className='p-6 space-y-4 md:space-y-6 sm:p-8 bg-primary'>
                 <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-2xl  text-white'>
-                  Registrate como Administrador
+                  Registrate
                 </h4>
+                <p>Recibe en los próximos días propuestas de empresas de socorrismo.</p>
                 <AdministratorRegisterForm />
               </div>
             </div>

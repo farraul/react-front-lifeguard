@@ -24,9 +24,9 @@ module.exports = {
         'theme-btn-primary': 'var(--btn-bg-primary-generic)',
         'theme-btn-secondary': 'var(--btn-bg-secondary-generic)',
 
-        primary: '#002e3d',
-        secondary: '#ffffff',
-        thirdary: '#504530',
+        primary: '#124CBA',
+        secondary: '#D5E3FE',
+        thirdary: '#ffffff',
       },
       colors: {
         'theme-primary': 'var(--text-primary-generic)',
@@ -35,7 +35,7 @@ module.exports = {
         'theme-btn-primary': 'var(--btn-text-primary-generic)',
         'theme-btn-secondary': 'var(--btn-text-secondary-generic)',
 
-        'primary-generic': '#002e3d',
+        'primary-generic': '#124CBA',
         'secondary-generic': ' #ffffff',
 
         border: 'hsl(var(--border))',

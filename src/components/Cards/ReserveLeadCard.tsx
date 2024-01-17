@@ -1,3 +1,4 @@
+import { ClassNames } from '@emotion/react';
 import React from 'react';
 import { Avatar } from 'src/components/Avatar/Avatar';
 import QuestionHoverCard from 'src/components/HoverCards/QuestionHoverCard';
@@ -11,7 +12,7 @@ interface LifeguardProps {
   start: string;
   end: string;
   id: string;
-  minheight: string;
+  className?: string;
 }
 
 const ReserveLeadCard = ({
@@ -24,12 +25,12 @@ const ReserveLeadCard = ({
   start,
   end,
   id,
-  minheight,
+  className,
 }: LifeguardProps) => {
   return (
     <div
       key={id}
-      className={`w-80 bg-theme-primary rounded-md text-theme-primary shadow-slate-200 shadow-md ${minheight}  content-between `}
+      className={`w-80 bg-theme-primary rounded-md text-theme-primary shadow-slate-200 shadow-md ${className}  content-between  `}
     >
       <div className=' p-10 '>
         <div className=' flex items-center '>
