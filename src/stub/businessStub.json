@@ -10,12 +10,21 @@
     "community": "Andalucia",
     "province": "Almería",
     "location": "Córdoba",
-    "servicesAditionals": [
-      "Clases natación",
-      "Manteninmiento pisicinas",
-      "Reaparación de instalaciones",
-      "Limpieza piscinas"
-    ],
+    "servicesAditionals": ["Clases natación", "Limpieza piscinas"],
     "id": "59363115-68k41-4363-a277-482137545891"
+  },
+  {
+    "name": "Aguavento",
+    "namePersonContact": "Ramon",
+    "email": "Ramon342@gmail.com",
+    "phone": "65435645",
+    "price": 13,
+    "yearsActive": 6,
+    "availability": "Junio- Agosto",
+    "community": "Andalucia",
+    "province": "Almería",
+    "location": "Córdoba",
+    "servicesAditionals": ["Manteninmiento pisicinas"],
+    "id": "59363115-68k41-4363-a27j7-482137545891"
   }
 ]

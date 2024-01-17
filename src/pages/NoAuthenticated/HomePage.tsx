@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { set } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import ReserveBusinessCard from 'src/components/Cards/ReserveBusinessCard';
 import ReserveLeadCard from 'src/components/Cards/ReserveLeadCard';
 import ReserveLifeguardCard from 'src/components/Cards/ReserveLifeguardCard';
+import { SearchCompany } from 'src/components/Search/SearchCompany';
 import business from 'src/stub/businessStub.json';
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  const [search, setSearch] = useState('');
+  // setSearch('s');
+  console.log({ search });
 
   return (
     <>
@@ -21,26 +27,33 @@ const HomePage = () => {
           <h1 className='text-center text-5xl'>La plataforma para socorristas</h1>
           <h2 className='text-center text-2xl mt-24'>Selecciona lo que estas buscando</h2>
         </section>
-        <section className='py-10 bg-slate-400'>Buscador</section>
+        <section className='py-10 bg-secondary'>
+          <SearchCompany setSearch={setSearch} />
+          a: {search}
+        </section>
         <section className=' items-center flex-col flex justify-center'>
           <div>
-            {business.map((company) => (
-              <ReserveBusinessCard
-                name={company.name}
-                community={company.community}
-                province={company.province}
-                location={company.location}
-                id={company.id}
-                namePersonContact={company.namePersonContact}
-                email={company.email}
-                phone={company.phone}
-                price={company.price}
-                yearsActive={company.yearsActive}
-                availability={company.availability}
-                servicesAditionals={company.servicesAditionals}
-                key={company.id}
-              />
-            ))}
+            {business.map((company) =>
+              // {company.community===search ?(<p>fg</p>):(null)}
+
+              company.community === search ? (
+                <ReserveBusinessCard
+                  name={company.name}
+                  community={company.community}
+                  province={company.province}
+                  location={company.location}
+                  id={company.id}
+                  namePersonContact={company.namePersonContact}
+                  email={company.email}
+                  phone={company.phone}
+                  price={company.price}
+                  yearsActive={company.yearsActive}
+                  availability={company.availability}
+                  servicesAditionals={company.servicesAditionals}
+                  key={company.id}
+                />
+              ) : null,
+            )}
           </div>
         </section>
         <section className='flex items-center flex-col justify-center'></section>
