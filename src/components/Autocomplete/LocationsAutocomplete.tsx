@@ -3,10 +3,15 @@ import { useEffect, useState } from 'react';
 import Autocomplete from '@mui/joy/Autocomplete';
 import { Controller } from 'react-hook-form';
 
-export default function LocationsAutocomplete({ provinceSelected, isDisabled, control }: any) {
+export default function LocationsAutocomplete({
+  provinceSelected,
+  isDisabled,
+  control,
+  reasonIn = 'input',
+}: any) {
   let locatiesFormatted: any = [];
   const [inputValue, setInputValue] = useState('');
-
+  console.log({ reasonIn });
   const locatiesMap = locaties as any;
 
   if (provinceSelected) {
@@ -25,10 +30,12 @@ export default function LocationsAutocomplete({ provinceSelected, isDisabled, co
         control={control}
         render={({ field }) => (
           <Autocomplete
+            required
             placeholder='Localidad'
             id='country-select-demo'
             disabled={isDisabled}
-            onInputChange={(event, newInputValue) => {
+            onInputChange={(event, newInputValue, reason) => {
+              reason = reasonIn;
               setInputValue(newInputValue);
               field.onChange(newInputValue);
             }}

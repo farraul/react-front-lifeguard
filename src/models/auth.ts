@@ -1,19 +1,15 @@
-export interface SignIn {
+export interface User {
+  name: string;
   email: string;
   password: string;
-  remember?: boolean;
+  confirmPassword: string;
+  phone: string;
 }
 
-export interface SignUp {
-  name: string;
-  lastName: string;
-  email: string;
-  age: number | undefined;
+export interface Provider extends User {
+  namePersonContact: string;
   community: string;
   province: string;
   location: string;
-  experience: string;
-  move: string;
   password: string;
-  confirmPassword: string;
 }

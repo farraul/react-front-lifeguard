@@ -68,29 +68,44 @@ const ProfilePage = () => {
 
   return (
     <article>
-      <section className='w-full items-center flex-col flex justify-center'>
-        <div className='pb-10 flex flex-row items-center'>
-          <div>
-            <img src='/assets/images/icons/profile.svg' />
+      <section className='w-full  flex flex-row justify-center'>
+        <div className='w-1/2'>
+          <div className='pb-10 flex flex-row items-center'>
+            <div>
+              <img src='/assets/images/icons/profile.svg' />
+            </div>
+            {/* revisar tamaños h1*/}
+            <h1 className='text-2xl font-bold ml-3'>Mi perfil</h1>
           </div>
-          {/* revisar tamaños h1*/}
-          <h1 className='text-2xl font-bold ml-3'>Mi perfil</h1>
+
+          <div className='p-10 max-w-md bg-gray-300 rounded-lg'>
+            {/* <Avatar {...stringAvatar(name)} /> */}
+
+            <ul className='py-8'>
+              {listDataProfile.map((field) => (
+                <li key={field.title}>
+                  <b>{field.title}: </b> {field.data}
+                </li>
+              ))}
+            </ul>
+            <PopUpEditProfile />
+          </div>
+        </div>
+        <div className='w-1/2'>
+          <div>
+            <p className='text-bold text-2xl font-bold'>Lead comprados</p>
+            <div className='w-full max-w-72 flex justify-between flex-col  mt-10'>
+              <div className=' bg-blue-200 flex flex-row justify-between px-4 py-2 '>
+                <div className='font-bold'>Manuel</div> <div>ver</div>
+              </div>
+              <div className=' mt-1 bg-blue-200 flex flex-row justify-between px-4 py-2 '>
+                <div className='font-bold'>Manuel</div> <div>ver</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className='p-10 max-w-md bg-gray-300 rounded-lg'>
-          {/* <Avatar {...stringAvatar(name)} /> */}
-
-          <ul className='py-8'>
-            {listDataProfile.map((field) => (
-              <li key={field.title}>
-                <b>{field.title}: </b> {field.data}
-              </li>
-            ))}
-          </ul>
-          <PopUpEditProfile />
-        </div>
-
-        <Outlet />
+        {/* <Outlet /> */}
       </section>
     </article>
   );
