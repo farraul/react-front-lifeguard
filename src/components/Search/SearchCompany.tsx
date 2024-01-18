@@ -1,4 +1,3 @@
-import { Provider } from 'src/models/auth';
 import { useState } from 'react';
 
 import { useForm, Controller } from 'react-hook-form';
@@ -10,7 +9,7 @@ import {
   SelectValue,
 } from 'src/components/ui/select';
 
-import ccaa from 'src/configs/ccaa.json';
+import communities from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
 import LocationsAutoComplete from 'src/components/Autocomplete/LocationsAutocomplete';
 
@@ -32,7 +31,7 @@ type Inputs = {
   community: string;
   province: string;
 };
-export const SearchCompany = ({ setSearch }: any) => {
+export const SearchCompany = ({ setSearchSelected }: any) => {
   const [ubication, setUbication] = useState({
     community: '',
     province: '',
@@ -42,11 +41,7 @@ export const SearchCompany = ({ setSearch }: any) => {
     province: true,
     location: true,
   });
-  const {
-    control,
-    setValue,
-    formState: { errors },
-  } = useForm<Provider>({
+  const { control } = useForm<any>({
     defaultValues: initialState,
   });
 
@@ -72,15 +67,17 @@ export const SearchCompany = ({ setSearch }: any) => {
                       required
                       onValueChange={(e) => {
                         setIsDisabled({ province: false, location: true });
-                        // setCcaaSelected(e);
-                        setUbication((prev) => ({ ...prev, community: e }));
-                        setValue('province', '');
+                        setUbication({ community: e, province: '' });
 
-                        const nameCommunitySelected = ccaa.filter(
+                        const nameCommunitySelected = communities.filter(
                           (comunity) => comunity.code === e,
                         )[0].label;
                         field.onChange(nameCommunitySelected);
-                        setSearch((prev: any) => ({ ...prev, community: nameCommunitySelected }));
+                        setSearchSelected({
+                          community: nameCommunitySelected,
+                          province: '',
+                          location: '',
+                        });
                       }}
                     >
                       <SelectTrigger className='w-[100%] bg-white'>
@@ -88,7 +85,7 @@ export const SearchCompany = ({ setSearch }: any) => {
                       </SelectTrigger>
 
                       <SelectContent>
-                        {ccaa.map((community) => (
+                        {communities.map((community) => (
                           <SelectItem key={community.label} value={community.code}>
                             {community.label}
                           </SelectItem>
@@ -125,12 +122,15 @@ export const SearchCompany = ({ setSearch }: any) => {
                         const nameProvinceSelected = provinces.filter((province) => {
                           return province.code === e;
                         })[0].label;
-                        field.onChange(nameProvinceSelected);
-                        // setProvinceSelected(e);
-                        setUbication((prev) => ({ ...prev, province: e }));
 
+                        field.onChange(nameProvinceSelected);
                         setIsDisabled({ ...isDisabled, location: false });
-                        setSearch((prev: any) => ({ ...prev, province: nameProvinceSelected }));
+                        setUbication((prev) => ({ ...prev, province: e, location: '' }));
+                        setSearchSelected((prev: any) => ({
+                          ...prev,
+                          province: nameProvinceSelected,
+                          location: '',
+                        }));
                       }}
                     >
                       <SelectTrigger className='w-[100%] bg-white'>
@@ -138,10 +138,7 @@ export const SearchCompany = ({ setSearch }: any) => {
                       </SelectTrigger>
                       <SelectContent>
                         {provinces.map((province) => {
-                          console.log;
                           if (province.parent_code === ubication.community) {
-                            console.log({ province });
-                            console.log(ubication);
                             return (
                               <SelectItem key={province.label} value={province.code}>
                                 {province.label}
@@ -163,11 +160,10 @@ export const SearchCompany = ({ setSearch }: any) => {
             />
           </div>
           <LocationsAutoComplete
-            setSearch={setSearch}
+            setSearch={setSearchSelected}
             provinceSelected={ubication.province}
             isDisabled={isDisabled.location}
             control={control}
-            reasonIn={ubication.province === '' && 'reset'}
           />
         </div>
       </div>

@@ -10,8 +10,12 @@ import business from 'src/stub/businessStub.json';
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const [search, setSearch] = useState({ community: '', province: '', location: '' });
-
+  const [searchSelected, setSearchSelected] = useState({
+    community: '',
+    province: '',
+    location: '',
+  });
+  console.log({ searchSelected });
   return (
     <>
       {/* <img
@@ -23,19 +27,66 @@ const HomePage = () => {
       <article>
         <section className='flex items-center flex-col justify-center bg-primary text-secondary-generic'>
           <h1 className='text-center text-5xl'>La plataforma para socorristas</h1>
-          <h2 className='text-center text-2xl mt-24'>Selecciona lo que estas buscando</h2>
+          <div className='w-full flex justify-center gap-20 max-w-7xl mt-10'>
+            <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
+              <p className=''>Para proveedores</p>
+              <p className='text-3xl mt-4'>Consigue clientes</p>
+              <p className='mt-8'>
+                ¿Eres una empresa de socorrismo? Accede a clientes que buscan socorristas, envía
+                presupuestos y publica ofertas de empleo para contratar socorristas.
+              </p>
+              <button
+                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
+                onClick={() => navigate('/register-company')}
+              >
+                Empezar gratis
+              </button>
+            </div>
+            <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
+              <p>Para administradores</p>
+
+              <p className='text-3xl mt-4'>Encuentra socorrista</p>
+              <p className='mt-8'>
+                {' '}
+                ¿Administras una finca o urbanización? Publica anuncios de búsqueda de socorristas,
+                solicita presupuestos a empresas y contrata servicios de forma sencilla.
+              </p>
+              <button
+                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
+                onClick={() => navigate('/register-administrator')}
+              >
+                Regístrate gratis
+              </button>
+            </div>
+            <div className='w-1/3 bg-primary text-secondary-generic p-10 text-center rounded-2xl '>
+              <p>Para socorristas</p>
+
+              <p className='text-3xl mt-4'>Consigue empleo</p>
+              <p className='mt-8'>
+                ¿Eres socorrista y estás desempleado? Crea tu perfil, inscríbete a ofertas de
+                trabajo y recibe oportunidades de empleo por parte de las empresas de socorrismo.
+              </p>
+              <button
+                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
+                onClick={() => navigate('/register-lifeguard')}
+              >
+                Registro gratuito
+              </button>
+            </div>
+          </div>
         </section>
         <section className='py-10 bg-secondary'>
-          <SearchCompany setSearch={setSearch} />
+          <SearchCompany setSearchSelected={setSearchSelected} />
         </section>
         <section className=' items-center flex-col flex justify-center'>
           <div>
             {business.map((company) => {
-              company.location === search.location;
+              company.location === searchSelected.location;
 
-              return (company.community == search.community || search.community === '') &&
-                (company.province === search.province || search.province === '') &&
-                (company.location === search.location || search.location === '') ? (
+              return (company.community == searchSelected.community ||
+                searchSelected.community === '') &&
+                (company.province === searchSelected.province || searchSelected.province === '') &&
+                (company.location === searchSelected.location || searchSelected.location === '') ? (
                 <ReserveBusinessCard
                   name={company.name}
                   community={company.community}

@@ -89,7 +89,7 @@ function Header() {
                 {isLogged ? (
                   <DropDownMenu />
                 ) : (
-                  <button className='text-theme-primary' onClick={() => navigate('/login')}>
+                  <button className='text-theme-primary text-xl' onClick={() => navigate('/login')}>
                     Login
                   </button>
                 )}

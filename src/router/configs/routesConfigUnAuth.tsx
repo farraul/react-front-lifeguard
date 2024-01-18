@@ -7,7 +7,7 @@ const Home = lazy(() => import('src/pages/noAuthenticated/HomePage'));
 const LoginPage = lazy(() => import('src/pages/noAuthenticated/LoginPage'));
 
 const LifeguardRegisterPage = lazy(() => import('src/pages/noAuthenticated/LifeguardRegisterPage'));
-const ProviderRegisterPage = lazy(() => import('src/pages/noAuthenticated/ProviderRegisterPage'));
+const CompanyRegisterPage = lazy(() => import('src/pages/noAuthenticated/CompanyRegisterPage'));
 const AdministratorRegisterPage = lazy(
   () => import('src/pages/noAuthenticated/AdministratorRegisterPage'),
 );
@@ -60,10 +60,10 @@ export const routesConfigUnAuth = createBrowserRouter([
           },
 
           {
-            path: '/register-provider',
+            path: '/register-company',
             element: (
               <Suspense fallback={<Spinner />}>
-                <ProviderRegisterPage />
+                <CompanyRegisterPage />
               </Suspense>
             ),
           },

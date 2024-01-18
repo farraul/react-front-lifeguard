@@ -83,3 +83,8 @@ section {
   padding-bottom: 120px;
   padding-left: 32px;
 }
+
+.Mui-disabled {
+  cursor: not-allowed;
+  pointer-events: auto;
+}

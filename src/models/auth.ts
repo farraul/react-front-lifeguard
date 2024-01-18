@@ -6,7 +6,8 @@ export interface User {
   phone: string;
 }
 
-export interface Provider extends User {
+export interface Company extends User {
+  whatsApp: string;
   namePersonContact: string;
   community: string;
   province: string;

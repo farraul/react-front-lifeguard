@@ -1,4 +1,4 @@
-import { Provider } from 'src/models/auth';
+import { Company } from 'src/models/auth';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
@@ -12,17 +12,19 @@ import {
   SelectValue,
 } from 'src/components/ui/select';
 
-import ccaa from 'src/configs/ccaa.json';
+import communities from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
 import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
+import LocationConpanyAutocomplete from '../Autocomplete/LocationCompanyAutocomplete';
 
-const initialState: Provider = {
+const initialState: Company = {
   name: '',
   namePersonContact: '',
   email: '',
   phone: '',
+  whatsApp: '',
   community: '',
   province: '',
   location: '',
@@ -37,9 +39,11 @@ type Inputs = {
   province: string;
 };
 
-export const ProviderRegisterForm = () => {
-  const [ccaaSelected, setCcaaSelected] = useState('');
-  const [provinceSelected, setProvinceSelected] = useState('');
+export const CompanyRegisterForm = () => {
+  const [ubication, setUbication] = useState({
+    community: '',
+    province: '',
+  });
   const [isDisabled, setIsDisabled] = useState({
     province: true,
     location: true,
@@ -54,7 +58,7 @@ export const ProviderRegisterForm = () => {
     reset,
     getFieldState,
     formState: { errors },
-  } = useForm<Provider>({
+  } = useForm<Company>({
     defaultValues: initialState,
   });
 
@@ -151,10 +155,10 @@ export const ProviderRegisterForm = () => {
                     required
                     onValueChange={(e) => {
                       setIsDisabled({ province: false, location: true });
-                      setCcaaSelected(e);
+                      setUbication((prev) => ({ ...prev, community: e }));
                       setValue('province', '');
 
-                      const nameCommunitySelected = ccaa.filter(
+                      const nameCommunitySelected = communities.filter(
                         (comunity) => comunity.code === e,
                       )[0].label;
                       field.onChange(nameCommunitySelected);
@@ -165,7 +169,7 @@ export const ProviderRegisterForm = () => {
                     </SelectTrigger>
 
                     <SelectContent>
-                      {ccaa.map((community) => (
+                      {communities.map((community) => (
                         <SelectItem key={community.label} value={community.code}>
                           {community.label}
                         </SelectItem>
@@ -207,7 +211,7 @@ export const ProviderRegisterForm = () => {
                       })[0].label;
                       console.log({ nameProvinceSelected });
                       field.onChange(nameProvinceSelected);
-                      setProvinceSelected(e);
+                      setUbication((prev) => ({ ...prev, province: e }));
                       setIsDisabled({ ...isDisabled, location: false });
                     }}
                   >
@@ -217,7 +221,7 @@ export const ProviderRegisterForm = () => {
                     <SelectContent>
                       {provinces.map((province) => {
                         console.log;
-                        if (province.parent_code === ccaaSelected) {
+                        if (province.parent_code === ubication.community) {
                           return (
                             <SelectItem key={province.label} value={province.code}>
                               {province.label}
@@ -242,11 +246,10 @@ export const ProviderRegisterForm = () => {
         <p className='mt-3 ml-1 text-xs text-red-500 self-start '>{errors.community?.message}</p>
       )} */}
 
-        <LocationsAutoCompelte
-          provinceSelected={provinceSelected}
+        <LocationConpanyAutocomplete
+          provinceSelected={ubication.province}
           isDisabled={isDisabled.location}
           control={control}
-          reasonIn={provinceSelected === '' && 'reset'}
         />
 
         <CustomInput

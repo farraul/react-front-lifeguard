@@ -1,4 +1,4 @@
-import { SignUp } from 'src/models/auth';
+// import { user } from 'src/models/auth';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
@@ -18,7 +18,7 @@ import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomp
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
 
-const initialState: SignUp = {
+const initialState: any = {
   name: '',
   lastName: '',
   email: '',

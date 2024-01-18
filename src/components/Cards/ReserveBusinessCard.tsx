@@ -42,7 +42,7 @@ const ReserveLeadCard = ({
         <div className=' flex flex-col items-center w-96 bg-primary px-6 py-2 rounded-l-sm text-secondary-generic justify-around'>
           <Avatar height={'h-24'} width={'w-24'} />
           <div className='text-center text-lg'>{name}</div>
-          <div className='gap-x-2 gap-y-2 flex flex-wrap'>
+          <div className='gap-x-2 gap-y-2 flex flex-wrap justify-center'>
             <button className='bg-thirdary text-primary-generic px-4 py-1 rounded-sm w-24 h-8'>
               Llamar
             </button>
