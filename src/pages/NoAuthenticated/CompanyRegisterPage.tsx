@@ -1,7 +1,7 @@
 import { CssBaseline, Container } from '@mui/material';
 
 import { LifeguardRegisterForm } from 'src/components/Forms/LifeguardRegisterForm ';
-import { CompanyRegisterForm } from 'src/components/Forms/CompanyRegisterForm';
+import { CompanyForm } from 'src/components/Forms/Register/CompanyForm';
 
 export default function CompanyRegisterPage() {
   return (
@@ -20,7 +20,7 @@ export default function CompanyRegisterPage() {
                 <h4 className='text-center text-xl font-light leading-tight tracking-tight md:text-2xl  text-white'>
                   Registrate como proveedor
                 </h4>
-                <CompanyRegisterForm />
+                <CompanyForm />
               </div>
             </div>
           </Container>

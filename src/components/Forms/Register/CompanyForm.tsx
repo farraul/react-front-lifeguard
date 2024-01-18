@@ -17,7 +17,8 @@ import provinces from 'src/configs/provinces.json';
 import LocationsAutoCompelte from 'src/components/Autocomplete/LocationAutocomplete';
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
-import LocationWithControlAutocomplete from '../Autocomplete/LocationWithControlAutocomplete';
+import LocationWithControlAutocomplete from '../../Autocomplete/LocationAutocomplete';
+import LocationAutocomplete from 'src/components/Autocomplete/LocationAutocomplete';
 
 const initialState: Company = {
   name: '',
@@ -39,7 +40,7 @@ type Inputs = {
   province: string;
 };
 
-export const CompanyRegisterForm = () => {
+export const CompanyForm = () => {
   const [ubication, setUbication] = useState({
     community: '',
     province: '',
@@ -243,10 +244,17 @@ export const CompanyRegisterForm = () => {
           />
         </div>
 
-        <LocationWithControlAutocomplete
-          provinceSelected={ubication.province}
-          isDisabled={isDisabled.location}
+        <Controller
+          name='location'
           control={control}
+          render={({ field }) => (
+            <LocationAutocomplete
+              provinceSelected={ubication.province}
+              isDisabled={isDisabled.location}
+              control={control}
+              field={field}
+            />
+          )}
         />
 
         <CustomInput

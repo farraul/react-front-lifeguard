@@ -2,6 +2,11 @@
 
 @tailwind base;
 @tailwind components;
+@layer components{
+  .btn-primary{
+    @apply mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md;
+  }
+}
 @tailwind utilities;
  
 @layer base {

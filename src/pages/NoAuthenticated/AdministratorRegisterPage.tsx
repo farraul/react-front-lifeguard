@@ -1,5 +1,5 @@
 import { CssBaseline, Container } from '@mui/material';
-import { AdministratorRegisterForm } from 'src/components/Forms/AdministratorRegisterForm';
+import { AdministratorForm } from 'src/components/Forms/Register/AdministratorForm';
 
 import { LifeguardRegisterForm } from 'src/components/Forms/LifeguardRegisterForm ';
 
@@ -21,7 +21,7 @@ export default function AdministratorRegisterPage() {
                   Registrate
                 </h4>
                 <p>Recibe en los próximos días propuestas de empresas de socorrismo.</p>
-                <AdministratorRegisterForm />
+                <AdministratorForm />
               </div>
             </div>
           </Container>

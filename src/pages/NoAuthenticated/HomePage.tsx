@@ -35,10 +35,7 @@ const HomePage = () => {
                 ¿Eres una empresa de socorrismo? Accede a clientes que buscan socorristas, envía
                 presupuestos y publica ofertas de empleo para contratar socorristas.
               </p>
-              <button
-                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/register-company')}
-              >
+              <button className='btn-primary' onClick={() => navigate('/register-company')}>
                 Empezar gratis
               </button>
             </div>
@@ -51,10 +48,7 @@ const HomePage = () => {
                 ¿Administras una finca o urbanización? Publica anuncios de búsqueda de socorristas,
                 solicita presupuestos a empresas y contrata servicios de forma sencilla.
               </p>
-              <button
-                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/register-administrator')}
-              >
+              <button className='btn-primary' onClick={() => navigate('/register-administrator')}>
                 Regístrate gratis
               </button>
             </div>
@@ -66,10 +60,7 @@ const HomePage = () => {
                 ¿Eres socorrista y estás desempleado? Crea tu perfil, inscríbete a ofertas de
                 trabajo y recibe oportunidades de empleo por parte de las empresas de socorrismo.
               </p>
-              <button
-                className='mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md'
-                onClick={() => navigate('/register-lifeguard')}
-              >
+              <button className='btn-primary' onClick={() => navigate('/register-lifeguard')}>
                 Registro gratuito
               </button>
             </div>

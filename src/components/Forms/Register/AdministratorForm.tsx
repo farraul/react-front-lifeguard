@@ -38,7 +38,7 @@ type Inputs = {
   community: string;
 };
 
-export const AdministratorRegisterForm = () => {
+export const AdministratorForm = () => {
   const [ccaaSelected, setCcaaSelected] = useState('');
   const [provinceSelected, setProvinceSelected] = useState('');
   const [isDisabled, setIsDisabled] = useState({
@@ -265,3 +265,5 @@ export const AdministratorRegisterForm = () => {
     </form>
   );
 };
+
+export default AdministratorForm;
