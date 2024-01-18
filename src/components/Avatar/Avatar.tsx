@@ -1,6 +1,6 @@
 interface Avatar {
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
 }
 
 export const Avatar = ({ height, width }: Avatar) => {

@@ -8,6 +8,7 @@ export default function LocationsAutocomplete({
   isDisabled,
   control,
   reasonIn = 'input',
+  setSearch,
 }: any) {
   let locatiesFormatted: any = [];
   const [inputValue, setInputValue] = useState('');
@@ -37,13 +38,16 @@ export default function LocationsAutocomplete({
             onInputChange={(event, newInputValue, reason) => {
               reason = reasonIn;
               setInputValue(newInputValue);
+              // console.log({ newInputValue });
               field.onChange(newInputValue);
+              setSearch((prev: any) => ({ ...prev, location: newInputValue }));
             }}
             options={locatiesFormatted}
             sx={{
               '&.Mui-disabled': {
-                background: '#80979e',
+                background: ' ',
                 color: '#041b23',
+                opacity: 50,
               },
               color: 'black',
             }}

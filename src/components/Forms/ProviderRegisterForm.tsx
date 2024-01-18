@@ -201,8 +201,8 @@ export const ProviderRegisterForm = () => {
                     disabled={isDisabled.province}
                     onValueChange={(e) => {
                       const nameProvinceSelected = provinces.filter((province) => {
-                        console.log({ province });
-                        console.log({ e });
+                        // console.log({ province });
+                        // console.log({ e });
                         return province.code === e;
                       })[0].label;
                       console.log({ nameProvinceSelected });

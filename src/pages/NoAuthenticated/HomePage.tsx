@@ -10,7 +10,7 @@ import business from 'src/stub/businessStub.json';
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState({ community: '', province: '', location: '' });
   // setSearch('s');
   console.log({ search });
 
@@ -29,14 +29,15 @@ const HomePage = () => {
         </section>
         <section className='py-10 bg-secondary'>
           <SearchCompany setSearch={setSearch} />
-          a: {search}
         </section>
         <section className=' items-center flex-col flex justify-center'>
           <div>
-            {business.map((company) =>
-              // {company.community===search ?(<p>fg</p>):(null)}
+            {business.map((company) => {
+              company.location === search.location;
 
-              company.community === search ? (
+              return (company.community == search.community || search.community === '') &&
+                (company.province === search.province || search.province === '') &&
+                (company.location === search.location || search.location === '') ? (
                 <ReserveBusinessCard
                   name={company.name}
                   community={company.community}
@@ -52,8 +53,8 @@ const HomePage = () => {
                   servicesAditionals={company.servicesAditionals}
                   key={company.id}
                 />
-              ) : null,
-            )}
+              ) : null;
+            })}
           </div>
         </section>
         <section className='flex items-center flex-col justify-center'></section>

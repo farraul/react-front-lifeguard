@@ -7,9 +7,9 @@
     "price": 12.5,
     "yearsActive": 12,
     "availability": "All year",
-    "community": "Andalucia",
+    "community": "Andalucía",
     "province": "Almería",
-    "location": "Córdoba",
+    "location": "Abrucena",
     "servicesAditionals": ["Clases natación", "Limpieza piscinas"],
     "id": "59363115-68k41-4363-a277-482137545891"
   },
@@ -21,9 +21,9 @@
     "price": 13,
     "yearsActive": 6,
     "availability": "Junio- Agosto",
-    "community": "Andalucia",
-    "province": "Almería",
-    "location": "Córdoba",
+    "community": "Andalucía",
+    "province": "Cádiz",
+    "location": "Alcalá de los Gazules",
     "servicesAditionals": ["Manteninmiento pisicinas"],
     "id": "59363115-68k41-4363-a27j7-482137545891"
   }

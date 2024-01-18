@@ -15,16 +15,16 @@ import {
 
 import ccaa from 'src/configs/ccaa.json';
 import provinces from 'src/configs/provinces.json';
-import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
+import LocationsAutoComplete from 'src/components/Autocomplete/LocationsAutocomplete';
 import experiences from 'src/configs/experiences';
 
-interface SearchProvider {
+interface SearchCompany {
   community: string;
   province: string;
   location: string;
 }
 
-const initialState: SearchProvider = {
+const initialState: SearchCompany = {
   community: '',
   province: '',
   location: '',
@@ -93,7 +93,7 @@ export const SearchCompany = ({ setSearch }: any) => {
                         console.log({ nameCommunitySelected });
                         field.onChange(nameCommunitySelected);
                         console.log({ nameCommunitySelected });
-                        setSearch(nameCommunitySelected);
+                        setSearch((prev: any) => ({ ...prev, community: nameCommunitySelected }));
                       }}
                     >
                       <SelectTrigger className='w-[100%] bg-white'>
@@ -144,6 +144,7 @@ export const SearchCompany = ({ setSearch }: any) => {
                         field.onChange(nameProvinceSelected);
                         setProvinceSelected(e);
                         setIsDisabled({ ...isDisabled, location: false });
+                        setSearch((prev: any) => ({ ...prev, province: nameProvinceSelected }));
                       }}
                     >
                       <SelectTrigger className='w-[100%] bg-white'>
@@ -176,7 +177,8 @@ export const SearchCompany = ({ setSearch }: any) => {
           {/* {errors && (
         <p className='mt-3 ml-1 text-xs text-red-500 self-start '>{errors.community?.message}</p>
       )} */}
-          <LocationsAutoCompelte
+          <LocationsAutoComplete
+            setSearch={setSearch}
             provinceSelected={provinceSelected}
             isDisabled={isDisabled.location}
             control={control}

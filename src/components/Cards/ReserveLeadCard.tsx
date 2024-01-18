@@ -34,7 +34,7 @@ const ReserveLeadCard = ({
     >
       <div className=' p-10 '>
         <div className=' flex items-center '>
-          <Avatar />
+          <Avatar height={''} width={''} />
           <div className='ml-4 text-lg'>{name}</div>
         </div>
         <div className='mt-6'>
