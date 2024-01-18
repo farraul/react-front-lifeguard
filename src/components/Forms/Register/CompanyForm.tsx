@@ -1,4 +1,4 @@
-import { Company } from 'src/models/auth';
+import { Company } from 'src/models/company';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
@@ -25,12 +25,17 @@ const initialState: Company = {
   namePersonContact: '',
   email: '',
   phone: '',
+  yearsActive: undefined,
   whatsApp: '',
+  availability: '',
+  website: '',
   community: '',
   province: '',
   location: '',
   password: '',
   confirmPassword: '',
+  price: 0,
+  servicesAditionals: [],
 };
 
 type Inputs = {
@@ -281,7 +286,6 @@ export const CompanyForm = () => {
             required: true,
             validate: (value) => {
               const { password } = getValues();
-              console.log(value, password);
               if (password !== value) return 'Your password does not match';
             },
           }}

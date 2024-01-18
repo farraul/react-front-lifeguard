@@ -9,6 +9,7 @@ export default function LocationsAutocomplete({
   setSearch,
   field,
 }: any) {
+  console.log({ field });
   let locatiesFormatted: any = [];
   const locatiesMap = locaties as any;
 
@@ -25,8 +26,9 @@ export default function LocationsAutocomplete({
         placeholder='Localidad'
         id='country-select-demo'
         disabled={isDisabled}
-        onInputChange={(newInputValue) => {
+        onInputChange={(_e, newInputValue) => {
           {
+            console.log('www', newInputValue);
             field
               ? field.onChange(newInputValue)
               : setSearch((prev: any) => ({ ...prev, location: newInputValue }));
