@@ -11,8 +11,6 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const [search, setSearch] = useState({ community: '', province: '', location: '' });
-  // setSearch('s');
-  console.log({ search });
 
   return (
     <>

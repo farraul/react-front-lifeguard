@@ -26,5 +26,19 @@
     "location": "Alcalá de los Gazules",
     "servicesAditionals": ["Manteninmiento pisicinas"],
     "id": "59363115-68k41-4363-a27j7-482137545891"
+  },
+  {
+    "name": "Lolo",
+    "namePersonContact": "Ramonpo",
+    "email": "Ramon342@gmail.com",
+    "phone": "65435645",
+    "price": 15,
+    "yearsActive": 6,
+    "availability": "Junio- Agosto",
+    "community": "Aragón",
+    "province": "Huesca",
+    "location": "Abiego",
+    "servicesAditionals": ["Manteninmiento pisicinas"],
+    "id": "59363115-68k41-4363-a27pj7-482137545891"
   }
 ]
