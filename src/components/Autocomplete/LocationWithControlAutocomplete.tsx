@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import Autocomplete from '@mui/joy/Autocomplete';
 import { Controller } from 'react-hook-form';
 
-export default function LocationConpanyAutocomplete({
+export default function LocationWithControlAutocomplete({
   provinceSelected,
   isDisabled,
   control,
-  // setSearch,
 }: any) {
   let locatiesFormatted: any = [];
   const [inputValue, setInputValue] = useState('');
@@ -18,9 +17,6 @@ export default function LocationConpanyAutocomplete({
       return location.label;
     });
   }
-  // useEffect(() => {
-  //   setInputValue('');
-  // }, [isDisabled]);
 
   return (
     <div>
@@ -35,9 +31,7 @@ export default function LocationConpanyAutocomplete({
             disabled={isDisabled}
             onInputChange={(event, newInputValue) => {
               setInputValue(newInputValue);
-              // console.log({ newInputValue });
               field.onChange(newInputValue);
-              // setSearch((prev: any) => ({ ...prev, location: newInputValue }));
             }}
             options={locatiesFormatted}
             sx={{

@@ -14,7 +14,7 @@ import {
 
 import ccaa from 'src/configs/ccaa.json';
 import provinces from 'src/configs/provinces.json';
-import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
+import LocationsAutoCompelte from 'src/components/Autocomplete/LocationAutocomplete';
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
 

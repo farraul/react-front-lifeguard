@@ -11,7 +11,7 @@ import {
 
 import communities from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
-import LocationsAutoComplete from 'src/components/Autocomplete/LocationsAutocomplete';
+import LocationsAutoComplete from 'src/components/Autocomplete/LocationAutocomplete';
 
 interface SearchCompany {
   community: string;

@@ -14,10 +14,10 @@ import {
 
 import communities from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
-import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
+import LocationsAutoCompelte from 'src/components/Autocomplete/LocationAutocomplete';
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
-import LocationConpanyAutocomplete from '../Autocomplete/LocationCompanyAutocomplete';
+import LocationWithControlAutocomplete from '../Autocomplete/LocationWithControlAutocomplete';
 
 const initialState: Company = {
   name: '',
@@ -242,11 +242,8 @@ export const CompanyRegisterForm = () => {
             }}
           />
         </div>
-        {/* {errors && (
-        <p className='mt-3 ml-1 text-xs text-red-500 self-start '>{errors.community?.message}</p>
-      )} */}
 
-        <LocationConpanyAutocomplete
+        <LocationWithControlAutocomplete
           provinceSelected={ubication.province}
           isDisabled={isDisabled.location}
           control={control}

@@ -1,4 +1,4 @@
-import { SignUp } from 'src/models/auth';
+// import { SignUp } from 'src/models/auth';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
@@ -12,13 +12,13 @@ import {
   SelectValue,
 } from 'src/components/ui/select';
 
-import ccaa from 'src/configs/ccaa.json';
+import ccaa from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
-import LocationsAutoCompelte from 'src/components/Autocomplete/LocationsAutocomplete';
+import LocationsAutoCompelte from 'src/components/Autocomplete/LocationAutocomplete';
 import experiences from 'src/configs/experiences';
 import { useAppSelector } from 'src/hooks/useApp';
 
-const initialState: SignUp = {
+const initialState: any = {
   name: '',
   lastName: '',
   email: '',
@@ -51,7 +51,7 @@ export const AdministratorRegisterForm = () => {
     getValues,
     control,
     formState: { errors },
-  } = useForm<SignUp>({
+  } = useForm<any>({
     defaultValues: initialState,
   });
   const navigate = useNavigate();
