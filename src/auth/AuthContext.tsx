@@ -6,7 +6,7 @@ import jwtService from './jwtService';
 import Cookies from 'js-cookie';
 import { useAppDispatch } from 'src/hooks/useApp';
 import { Spinner } from 'src/components/Loaders';
-import profileLifeguardStub from 'src/stub/profileLifeguardStub.json';
+import profileCompanyStub from 'src/stub/profileCompanyStub copy.json';
 
 type PropsProvider = {
   children: React.ReactNode;
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }: PropsProvider) => {
         dispatch(showMessage({ message }));
       }
 
-      Promise.all([dispatch(setCredentials(profileLifeguardStub))]).then((values) => {
+      Promise.all([dispatch(setCredentials(profileCompanyStub))]).then((values) => {
         setWaitAuthCheck(false);
       });
     }

@@ -1,31 +1,35 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { userRegister, signIn } from './userActions';
 import Cookies from 'js-cookie';
-import { User, UserInfo } from 'src/models/user/user';
+import { Company } from 'src/models/user/user';
+import { User } from 'src/models/user/user';
 import profileLifeguard from 'src/stub/profileLifeguardStub.json';
 
-const token = Cookies.get('jwt_access_token') || '';
-
-const infoDefault = profileLifeguard;
+// const infoDefault = profileLifeguard;
 const infoDefaultNull = {
   name: '',
-  lastName: '',
+  namePersonContact: '',
   email: '',
-  age: 0,
+  phone: '',
+  whatsApp: '',
+  website: '',
+  availability: '',
+  yearsActive: '',
+  priceHour: '',
   community: '',
   province: '',
   location: '',
-  experience: '',
   id: '',
-  move: '',
   token: '',
+  servicesAditionals: [],
 };
 
 const tokenDefault = '';
+const token = Cookies.get('jwt_access_token') || '';
 
 const userEmptyState: User = {
   loading: false,
-  userInfo: { ...infoDefault },
+  userInfo: { ...infoDefaultNull, token },
   error: null,
   success: false,
 };
@@ -40,7 +44,7 @@ const userSlice = createSlice({
       state.userInfo = { ...infoDefaultNull, token: tokenDefault };
       state.error = null;
     },
-    setCredentials: (state, action: PayloadAction<UserInfo>) => {
+    setCredentials: (state, action: PayloadAction<Company>) => {
       state.userInfo = action.payload;
     },
   },

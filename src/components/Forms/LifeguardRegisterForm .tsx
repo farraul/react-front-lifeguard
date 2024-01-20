@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from 'src/components/ui/select';
 
-import ccaa from 'src/configs/ccaa.json';
+import communities from 'src/configs/communities.json';
 import provinces from 'src/configs/provinces.json';
 import LocationsAutoCompelte from 'src/components/Autocomplete/LocationAutocomplete';
 import experiences from 'src/configs/experiences';
@@ -51,7 +51,7 @@ export const LifeguardRegisterForm = () => {
     getValues,
     control,
     formState: { errors },
-  } = useForm<SignUp>({
+  } = useForm<any>({
     defaultValues: initialState,
   });
   const navigate = useNavigate();
@@ -147,7 +147,7 @@ export const LifeguardRegisterForm = () => {
               </SelectTrigger>
 
               <SelectContent>
-                {ccaa.map((community) => (
+                {communities.map((community) => (
                   <SelectItem key={community.label} value={community.code}>
                     {community.label}
                   </SelectItem>

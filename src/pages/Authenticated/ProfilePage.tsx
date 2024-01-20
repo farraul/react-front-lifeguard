@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { useAppSelector } from 'src/hooks/useApp';
 import Card from '@mui/material/Card';
 
 import { Link, Outlet } from 'react-router-dom';
-import { PopUpEditProfile } from 'src/components/PopUp/EditProfilePopUp';
+import { EditFieldPopUp } from 'src/components/PopUp/EditFieldPopUp';
 
 interface List {
   title: string;
@@ -12,8 +12,19 @@ interface List {
 }
 
 const ProfilePage = () => {
-  const { name, lastName, email, age, experience, community, province, location, move } =
-    useAppSelector((state) => state.user.userInfo);
+  const {
+    name,
+    namePersonContact,
+    email,
+    whatsApp,
+    yearsActive,
+    community,
+    province,
+    availability,
+    priceHour,
+    location,
+    servicesAditionals,
+  } = useAppSelector((state) => state.user.userInfo);
 
   // function stringAvatar(name: string) {
   //   return {
@@ -24,7 +35,7 @@ const ProfilePage = () => {
   //   };
   // }
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const listDataProfile: List[] = [
     {
@@ -32,37 +43,44 @@ const ProfilePage = () => {
       data: name,
     },
     {
-      title: 'Apellido',
-      data: lastName,
+      title: 'Persona de contacto',
+      data: namePersonContact,
     },
     {
       title: 'Email',
       data: email,
     },
     {
-      title: 'Edad',
-      data: age,
+      title: 'Whatsapp',
+      data: whatsApp,
     },
-
     {
-      title: 'Experiencia',
-      data: experience,
+      title: 'Años de experiencia',
+      data: yearsActive,
+    },
+    {
+      title: 'Precio la hora',
+      data: priceHour,
+    },
+    {
+      title: 'Disponibilidad',
+      data: availability,
     },
     {
       title: 'Comunidad autónoma',
       data: community,
     },
     {
-      title: 'Provincia',
-      data: province,
-    },
-    {
       title: 'Localidad',
       data: location,
     },
     {
-      title: 'Desplazamiento',
-      data: move,
+      title: 'Provincia',
+      data: province,
+    },
+    {
+      title: 'Servicios adicionales',
+      data: servicesAditionals,
     },
   ];
 
@@ -88,7 +106,7 @@ const ProfilePage = () => {
                 </li>
               ))}
             </ul>
-            <PopUpEditProfile />
+            <EditFieldPopUp listDataProfile={listDataProfile} />
           </div>
         </div>
         <div className='w-1/2'>

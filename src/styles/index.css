@@ -4,7 +4,10 @@
 @tailwind components;
 @layer components{
   .btn-primary{
-    @apply mt-8 bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md;
+    @apply  bg-thirdary text-primary-generic text-lg px-4 py-2 rounded-md w-full;
+  }
+  .btn-secondary{
+    @apply  bg-primary text-secondary-generic text-lg px-4 py-2 rounded-md w-full;
   }
 }
 @tailwind utilities;

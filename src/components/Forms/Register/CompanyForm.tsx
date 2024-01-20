@@ -1,4 +1,4 @@
-import { Company } from 'src/models/company';
+import { CompanyRegister } from 'src/models/company';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CustomInput, Input } from 'src/components/PrimitiveElements/Input';
@@ -20,21 +20,21 @@ import { useAppSelector } from 'src/hooks/useApp';
 import LocationWithControlAutocomplete from '../../Autocomplete/LocationAutocomplete';
 import LocationAutocomplete from 'src/components/Autocomplete/LocationAutocomplete';
 
-const initialState: Company = {
+const initialState: CompanyRegister = {
   name: '',
   namePersonContact: '',
   email: '',
   phone: '',
-  yearsActive: undefined,
   whatsApp: '',
-  availability: '',
   website: '',
+  yearsActive: undefined,
+  availability: '',
+  priceHour: undefined,
   community: '',
   province: '',
   location: '',
   password: '',
   confirmPassword: '',
-  price: 0,
   servicesAditionals: [],
 };
 
@@ -64,7 +64,7 @@ export const CompanyForm = () => {
     reset,
     getFieldState,
     formState: { errors },
-  } = useForm<Company>({
+  } = useForm<CompanyRegister>({
     defaultValues: initialState,
   });
 
@@ -127,23 +127,53 @@ export const CompanyForm = () => {
           placeholder='Nº teléfono'
         />
         <CustomInput
-          name='email'
-          error={errors.email?.message as string}
+          name='whatsapp'
+          error={errors.whatsApp?.message as string}
           register={register}
           rules={{
             required: true,
-
-            pattern: {
-              value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-              message: 'No es un email válido.',
+            minLength: {
+              value: 1,
+              message: 'Mínimo 1 caracteres.',
+            },
+          }}
+          type='number'
+          id='whatsapp'
+          isRequired={true}
+          placeholder='Whatsapp'
+        />
+        <CustomInput
+          name='yearsAcive'
+          error={errors.yearsActive?.message as string}
+          register={register}
+          rules={{
+            required: true,
+            minLength: {
+              value: 1,
+              message: 'Mínimo 1 caracteres.',
             },
           }}
           type='text'
-          id='email'
+          id='yearsActive'
           isRequired={true}
-          placeholder='Email'
+          placeholder='Años de experiencia'
         />
-
+        <CustomInput
+          name='priceHour'
+          error={errors.yearsActive?.message as string}
+          register={register}
+          rules={{
+            required: true,
+            minLength: {
+              value: 1,
+              message: 'Mínimo 1 caracteres.',
+            },
+          }}
+          type='number'
+          id='priceHour'
+          isRequired={true}
+          placeholder='Precio la hora'
+        />
         <div className=''>
           <Controller
             name='community'
@@ -192,7 +222,6 @@ export const CompanyForm = () => {
             }}
           />
         </div>
-
         <div className=''>
           <Controller
             name='province'
@@ -248,7 +277,6 @@ export const CompanyForm = () => {
             }}
           />
         </div>
-
         <Controller
           name='location'
           control={control}
@@ -261,7 +289,24 @@ export const CompanyForm = () => {
             />
           )}
         />
+        <p className='text-white'>Cuenta:</p>
+        <CustomInput
+          name='email'
+          error={errors.email?.message as string}
+          register={register}
+          rules={{
+            required: true,
 
+            pattern: {
+              value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+              message: 'No es un email válido.',
+            },
+          }}
+          type='text'
+          id='email'
+          isRequired={true}
+          placeholder='Email'
+        />
         <CustomInput
           name='password'
           error={errors.password?.message as string}

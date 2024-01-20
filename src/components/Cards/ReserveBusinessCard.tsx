@@ -39,22 +39,18 @@ const ReserveLeadCard = ({
       className={` mt-5 w-full bg-secondary rounded-md text-primary-generic shadow-slate-200 shadow-md ${className}  content-between  w-full max-w-5xl   `}
     >
       <div className=' flex flex-row '>
-        <div className=' flex flex-col items-center w-96 bg-primary px-6 py-2 rounded-l-sm text-secondary-generic justify-around'>
+        <div className=' flex flex-col items-center w-120 bg-primary px-6 py-2 rounded-l-sm text-secondary-generic justify-around'>
           <Avatar height={'h-24'} width={'w-24'} />
           <div className='text-center text-lg'>{name}</div>
           <div className='gap-x-2 gap-y-2 flex flex-wrap justify-center'>
-            <button className='bg-thirdary text-primary-generic px-4 py-1 rounded-sm w-24 h-8'>
-              Llamar
-            </button>
-            <button className='bg-thirdary text-primary-generic px-4 py-1 rounded-sm w-24 h-8'>
-              Email
-            </button>
-            <button className='bg-thirdary text-primary-generic px-4 py-1 rounded-sm w-24 h-8'>
-              WhatsApp
-            </button>
-            <button className='bg-thirdary text-primary-generic px-4 py-1 rounded-sm w-24 h-8'>
-              Página web
-            </button>
+            <div className='flex gap-2 w-full'>
+              <button className='btn-primary'>Llamar</button>
+              <button className='btn-primary'>Email</button>
+            </div>
+            <div className='flex gap-2 w-full'>
+              <button className='btn-primary'>WhatsApp</button>
+              <button className='btn-primary'>Página web</button>
+            </div>
           </div>
         </div>
         <div className=' flex ml-6 w-full py-2 pr-2'>

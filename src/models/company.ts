@@ -6,7 +6,7 @@ export interface User {
   phone: string;
 }
 
-export interface Company {
+export interface CompanyRegister {
   name: string;
   namePersonContact: string;
   email: string;
@@ -14,12 +14,12 @@ export interface Company {
   confirmPassword: string;
   phone: string;
   whatsApp: string;
+  priceHour: number | undefined;
   website: string;
   availability: string;
   community: string;
   province: string;
   location: string;
-  price: number;
   yearsActive: number | undefined;
   servicesAditionals: Array<string>;
 }
